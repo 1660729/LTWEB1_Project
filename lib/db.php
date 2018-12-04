@@ -1,7 +1,7 @@
 <?php
 
 define("HOST", "127.0.0.1");
-define("DB", "quanlysanpham");
+define("DB", "quanlybanhang");
 define("UID", "root");
 define("PWD", "");
 
@@ -11,7 +11,7 @@ function load($sql) {
 	    die("FAILED");
 	}
 
-	echo $cn->host_info . "\n";
+	// echo $cn->host_info . "\n";
 	$cn->query("set names 'utf8'");
 	$rs = $cn->query($sql);
 	return $rs;

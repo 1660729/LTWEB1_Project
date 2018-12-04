@@ -1,29 +1,16 @@
 <?php
-	session_start();
-	if (!isset($_SESSION["dang_nhap_chua"])) {
-		$_SESSION["dang_nhap_chua"] = 0;
+session_start();
+
+require_once './vendor/autoload.php';
+use Gregwar\Captcha\CaptchaBuilder;
+
+if (isset($_POST["btnRegister"])) {
+	$input = $_POST["txtUserInput"];
+	if ($input == $_SESSION["captcha"]) {
+
 	}
-
-	require_once './lib/db.php';
-
-	if (isset($_POST["btnLogin"])) {
-		$username = $_POST["username-modal"];
-		$password = $_POST["password-modal"];
-		$enc_password = $password;//md5($password);
-
-		$sql = "select * from taikhoan where TenDangNhap = '$username' and MatKhau = '$enc_password'";
-		$rs = load($sql);
-		if ($rs->num_rows > 0) {
-			$_SESSION["current_user"] = $rs->fetch_object();
-			$_SESSION["dang_nhap_chua"] = 1;
-			header("Location: profile.php");
-		} else {
-      // sinh viên xử lý show_alert
-      alert("Đăng nhập thành công!");
-		}
-	}
+}
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -52,6 +39,42 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <script type="text/javascript">
+        function CheckRegister()
+        {
+          var username = document.getElementById("txtUsername");
+          var password = document.getElementById("txtPassword");
+          var capcha = document.getElementById("txtUserInput");          
+          var re_password = document.getElementById("txtRepassword");
+
+          if(username.value == "")
+          {
+            alert("Username trống!");
+            username.focus();
+            return flase;
+          }
+          if(password.value == "")
+          {
+            alert("Password trống!");
+            password.focus();
+            return flase;
+          }
+          if(re_password.value == "" || re_password.value != password.value)
+          {
+            alert("Password trống!");
+            password.focus();
+            return flase;
+          }
+          if(capcha.value == "")
+          {
+            alert("capcha không đúng!");
+            capcha.focus();
+            return flase;
+          }
+          alert("Đăng ký thành công.");
+          return true;
+        }
+      </script>
   </head>
   <body>
     <!-- navbar-->
@@ -66,10 +89,7 @@
             <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#" class="btn btn-success btn-sm">Offer of the day</a><a href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
             <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
-                <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                <li class="list-inline-item"><a href="register.php">Register</a></li>
-                <li class="list-inline-item"><a href="contact.html">Contact</a></li>
-                <li class="list-inline-item"><a href="#">Recently viewed</a></li>
+                <li class="list-inline-item"><a href="login.php">Login</a></li>
               </ul>
             </div>
           </div>
@@ -84,17 +104,17 @@
               <div class="modal-body">
                 <form action="customer-orders.html" method="post">
                   <div class="form-group">
-                    <input id="username-modal" type="text" placeholder="username" class="form-control">
+                    <input id="email-modal" type="text" placeholder="email" class="form-control">
                   </div>
                   <div class="form-group">
                     <input id="password-modal" type="password" placeholder="password" class="form-control">
                   </div>
                   <p class="text-center">
-                    <button class="btn btn-primary" id="btnLogin"> Log in</button>
+                    <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
                   </p>
                 </form>
                 <p class="text-center text-muted">Not registered yet?</p>
-                <p class="text-center text-muted"><a href="register.php"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+                <p class="text-center text-muted"><a href="login.php"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
               </div>
             </div>
           </div>
@@ -210,56 +230,8 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Template<b class="caret"></b></a>
-                <ul class="dropdown-menu megamenu">
-                  <li>
-                    <div class="row">
-                      <div class="col-md-6 col-lg-3">
-                        <h5>Shop</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="index.php" class="nav-link">Homepage</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Category - sidebar left</a></li>
-                          <li class="nav-item"><a href="category-right.html" class="nav-link">Category - sidebar right</a></li>
-                          <li class="nav-item"><a href="category-full.html" class="nav-link">Category - full width</a></li>
-                          <li class="nav-item"><a href="detail.html" class="nav-link">Product detail</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-6 col-lg-3">
-                        <h5>User</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="register.php" class="nav-link">Register / login</a></li>
-                          <li class="nav-item"><a href="customer-orders.html" class="nav-link">Orders history</a></li>
-                          <li class="nav-item"><a href="customer-order.html" class="nav-link">Order history detail</a></li>
-                          <li class="nav-item"><a href="customer-wishlist.html" class="nav-link">Wishlist</a></li>
-                          <li class="nav-item"><a href="customer-account.html" class="nav-link">Customer account / change password</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-6 col-lg-3">
-                        <h5>Order process</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="basket.html" class="nav-link">Shopping cart</a></li>
-                          <li class="nav-item"><a href="checkout1.html" class="nav-link">Checkout - step 1</a></li>
-                          <li class="nav-item"><a href="checkout2.html" class="nav-link">Checkout - step 2</a></li>
-                          <li class="nav-item"><a href="checkout3.html" class="nav-link">Checkout - step 3</a></li>
-                          <li class="nav-item"><a href="checkout4.html" class="nav-link">Checkout - step 4</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-6 col-lg-3">
-                        <h5>Pages and blog</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="blog.html" class="nav-link">Blog listing</a></li>
-                          <li class="nav-item"><a href="post.html" class="nav-link">Blog Post</a></li>
-                          <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
-                          <li class="nav-item"><a href="text.html" class="nav-link">Text page</a></li>
-                          <li class="nav-item"><a href="text-right.html" class="nav-link">Text page - right sidebar</a></li>
-                          <li class="nav-item"><a href="404.html" class="nav-link">404 page</a></li>
-                          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
+    
+              
             </ul>
             <div class="navbar-buttons d-flex justify-content-end">
               <!-- /.nav-collapse-->
@@ -297,47 +269,38 @@
             </div>
             <div class="col-lg-6">
               <div class="box">
-                <h1>New account</h1>
-                <p class="lead">Not our registered customer yet?</p>
-                <p>With registration with us new world of fashion, fantastic discounts and much more opens to you! The whole process will not take you more than a minute!</p>
-                <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
-                <hr>
-                <form action="customer-orders.html" method="post">
+                <h1>New account</h1>               
+                <form action="register.php" method="post" onsubmit="return CheckRegister();">
                   <div class="form-group">
                     <label for="username">Username</label>
-                    <input id="username-modal" type="text" class="form-control">
+                    <input id="txtUsername" name="txtUsername" type="text" class="form-control">
                   </div>
                   <div class="form-group">
                     <label for="password">Password</label>
-                    <input id="password" type="password" class="form-control">
+                    <input id="txtPassword" name="txtPassword" type="password" class="form-control">
                   </div>
+                  <div class="form-group">
+                    <label for="re_password">Re_Password</label>
+                    <input id="txtRepassword" name="txtRepassword" type="password" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <?php
+                      $builder = new CaptchaBuilder;
+                      $builder->build();
+                      $_SESSION["captcha"] = $builder->getPhrase();
+                    ?>
+                    <img src="<?= $builder->inline() ?>" alt="captcha" />
+					        </div>
+                  <div class="form-group">
+                    <label for="txtUserInput">Captcha</label>
+                    <input type="text" class="form-control" id="txtUserInput" name="txtUserInput">
+				        	</div>
                   <div class="text-center">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-user-md"></i> Register</button>
+                    <button type="submit" name="btnRegister" class="btn btn-primary"><i class="fa fa-user-md"></i> Register</button>
                   </div>
                 </form>
               </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="box">
-                <h1>Login</h1>
-                <p class="lead">Already our customer?</p>
-                <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                <hr>
-                <form action="customer-orders.html" method="post">
-                  <div class="form-group">
-                    <label for="username">Username</label>
-                    <input id="username-modal" type="text" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label for="password">Password</label>
-                    <input id="username-modal" type="password" class="form-control">
-                  </div>
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
-                  </div>
-                </form>
-              </div>
-            </div>
+            </div>            
           </div>
         </div>
       </div>
@@ -347,55 +310,7 @@
     _________________________________________________________
     -->
     <div id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-6">
-            <h4 class="mb-3">Pages</h4>
-            <ul class="list-unstyled">
-              <li><a href="text.html">About us</a></li>
-              <li><a href="text.html">Terms and conditions</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="contact.html">Contact us</a></li>
-            </ul>
-            <hr>
-            <h4 class="mb-3">User section</h4>
-            <ul class="list-unstyled">
-              <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-              <li><a href="register.php">Regiter</a></li>
-            </ul>
-          </div>
-          <!-- /.col-lg-3-->
-          <div class="col-lg-3 col-md-6">
-            <h4 class="mb-3">Top categories</h4>
-            <h5>Men</h5>
-            <ul class="list-unstyled">
-              <li><a href="category.html">T-shirts</a></li>
-              <li><a href="category.html">Shirts</a></li>
-              <li><a href="category.html">Accessories</a></li>
-            </ul>
-            <h5>Ladies</h5>
-            <ul class="list-unstyled">
-              <li><a href="category.html">T-shirts</a></li>
-              <li><a href="category.html">Skirts</a></li>
-              <li><a href="category.html">Pants</a></li>
-              <li><a href="category.html">Accessories</a></li>
-            </ul>
-          </div>
-          <!-- /.col-lg-3-->
-          <div class="col-lg-3 col-md-6">
-            <h4 class="mb-3">Where to find us</h4>
-            <p><strong>Obaju Ltd.</strong><br>13/25 New Avenue<br>New Heaven<br>45Y 73J<br>England<br><strong>Great Britain</strong></p><a href="contact.html">Go to contact page</a>
-            <hr class="d-block d-md-none">
-          </div>
-          <!-- /.col-lg-3-->
-          <div class="col-lg-3 col-md-6">
-            <h4 class="mb-3">Get the news</h4>
-            <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-            <form>
-              <div class="input-group">
-                <input type="text" class="form-control"><span class="input-group-append">
-                  <button type="button" class="btn btn-outline-secondary">Subscribe!</button></span>
-              </div>
+      <div class="container">  
               <!-- /input-group-->
             </form>
             <hr>
