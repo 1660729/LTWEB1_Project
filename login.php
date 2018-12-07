@@ -28,7 +28,7 @@ require_once './lib/db.php';
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Obaju : e-commerce template</title>
+    <title>Shop Obaju</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -80,42 +80,19 @@ require_once './lib/db.php';
       *** TOPBAR ***
       _________________________________________________________
       -->
+
       <div id="top">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#" class="btn btn-success btn-sm">Offer of the day</a><a href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
             <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
-                <li class="list-inline-item"><a href="register.php">register</a></li>
+                <li class="list-inline-item"><a href="register.php">Register</a></li>
               </ul>
             </div>
           </div>
         </div>
-        <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
-          <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Customer login</h5>
-                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-              </div>
-              <div class="modal-body">
-                <form action="customer-orders.html" method="post">
-                  <div class="form-group">
-                    <input id="email-modal" type="text" placeholder="email" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <input id="password-modal" type="password" placeholder="password" class="form-control">
-                  </div>
-                  <p class="text-center">
-                    <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
-                  </p>
-                </form>
-                <p class="text-center text-muted">Not registered yet?</p>
-                <p class="text-center text-muted"><a href="login.php"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      
         <!-- *** TOP BAR END ***-->
         
         
@@ -134,46 +111,19 @@ require_once './lib/db.php';
                   <li>
                     <div class="row">
                       <div class="col-md-6 col-lg-3">
-                        <h5>Clothing</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">T-shirts</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Shirts</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Pants</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Accessories</a></li>
+                      <h5>Quần áo</h5>
+                        <ul class="list-unstyled mb-3">               
+                          <li class="nav-item"><a href="#" class="nav-link">Áo thun</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Áo khoác</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Quần jeans</a></li>
                         </ul>
                       </div>
                       <div class="col-md-6 col-lg-3">
-                        <h5>Shoes</h5>
+                        <h5>Giày</h5>
                         <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">Trainers</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Sandals</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Casual</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-6 col-lg-3">
-                        <h5>Accessories</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">Trainers</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Sandals</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Casual</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Casual</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-6 col-lg-3">
-                        <h5>Featured</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">Trainers</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Sandals</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
-                        </ul>
-                        <h5>Looks and trends</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">Trainers</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Sandals</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Giày thể thao</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Giày Sandals</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Giày lười</a></li>                         
                         </ul>
                       </div>
                     </div>
@@ -185,45 +135,21 @@ require_once './lib/db.php';
                   <li>
                     <div class="row">
                       <div class="col-md-6 col-lg-3">
-                        <h5>Clothing</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">T-shirts</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Shirts</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Pants</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Accessories</a></li>
+                      <h5>Quần áo</h5>
+                        <ul class="list-unstyled mb-3">               
+                          <li class="nav-item"><a href="#" class="nav-link">Áo thun</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Áo khoác</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Quần jeans</a></li>
                         </ul>
                       </div>
                       <div class="col-md-6 col-lg-3">
-                        <h5>Shoes</h5>
+                      <h5>Giày</h5>
                         <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">Trainers</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Sandals</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Casual</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Giày thể thao</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Giày Sandals</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Giày lười</a></li>                         
                         </ul>
                       </div>
-                      <div class="col-md-6 col-lg-3">
-                        <h5>Accessories</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">Trainers</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Sandals</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Casual</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Casual</a></li>
-                        </ul>
-                        <h5>Looks and trends</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="category.html" class="nav-link">Trainers</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Sandals</a></li>
-                          <li class="nav-item"><a href="category.html" class="nav-link">Hiking shoes</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-6 col-lg-3">
-                        <div class="banner"><a href="#"><img src="img/banner.jpg" alt="" class="img img-fluid"></a></div>
-                        <div class="banner"><a href="#"><img src="img/banner2.jpg" alt="" class="img img-fluid"></a></div>
-                      </div>
-                    </div>
                   </li>
                 </ul>
               </li>

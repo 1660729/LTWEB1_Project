@@ -11,7 +11,6 @@ function load($sql) {
 	    die("FAILED");
 	}
 
-	//echo $cn->host_info . "\n";
 	$cn->query("set names 'utf8'");
 	$rs = $cn->query($sql);
 	return $rs;
