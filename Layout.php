@@ -42,7 +42,7 @@
             <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#" class="btn btn-success btn-sm">Offer of the day</a><a href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
             <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
-                   <li class="list-inline-item"><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                   <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
                   <li class="list-inline-item"><a href="?Page=register">Register</a></li>
               </ul>
             </div>
@@ -56,15 +56,15 @@
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
               </div>
               <div class="modal-body">
-                <form action="?controller=User&action=KiemTrataiKhoan" method="POST">
+                <form action="?Page=login" method="POST">
                   <div class="form-group">
-                    <input id="email-modal" type="text" name="NguoiDung" placeholder="email" class="form-control">
+                    <input id="email-modal" type="text" name="txtUserName" placeholder="email" class="form-control">
                   </div>
                   <div class="form-group">
-                    <input id="password-modal" type="password" name="matKhau" placeholder="password" class="form-control">
+                    <input id="password-modal" type="password" name="txtPassword" placeholder="password" class="form-control">
                   </div>
                   <p class="text-center">
-                    <button class="btn btn-primary" name="submit"><i class="fa fa-sign-in"></i> Log in</button>
+                    <button class="btn btn-primary" name="btnLogin"><i class="fa fa-sign-in"></i> Log in</button>
                   </p>
                 </form>
                 <p class="text-center text-muted">Not registered yet?</p>

@@ -62,22 +62,20 @@
 
         if(isset($_POST["submit"]))
         {
-          require_once("./lib/db.php");
-          $TenDangnhap=$_POST["NguoiDung"];
-          $MatKhau=$_POST["matKhau"];
-          $DienThoai=$_POST["Dientoai"];
-          $DiaChi=$_POST["Diachi"];
-          $Email=$_POST["Email"];
-          $Sql="insert TaiKhoan(NguoiDung,matKhau,Dientoai,Diachi,Email)values('$TenDangnhap','$MatKhau','$DienThoai','$DiaChi','$Email')";
+        //   require_once("./lib/db.php");
+        //   $TenDangnhap=$_POST["NguoiDung"];
+        //   $MatKhau=$_POST["matKhau"];
+        //   $DienThoai=$_POST["Dientoai"];
+        //   $DiaChi=$_POST["Diachi"];
+        //   $Email=$_POST["Email"];
+        //   $Sql="insert TaiKhoan(NguoiDung,matKhau,Dientoai,Diachi,Email)values('$TenDangnhap','$MatKhau','$DienThoai','$DiaChi','$Email')";
          
-         $result=write($Sql);
-        
-          
-
+        //  $result=write($Sql);
+          $page ="";
+           require_once("index.php");
         }
           
 
-    
     
     
     ?>
