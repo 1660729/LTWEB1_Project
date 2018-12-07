@@ -1,6 +1,6 @@
 <?php
 
-define("HOST", "127.0.0.1");
+define("HOST", "localhost");
 define("DB", "onlineshop");
 define("UID", "root");
 define("PWD", "");
@@ -23,7 +23,7 @@ function write($sql) {
 	}
 
 	$cn->query("set names 'utf8'");
-	$cn->query($sql);
-	
+	$rs=$cn->query($sql);
+	return $rs;
 }
 
