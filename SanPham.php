@@ -64,13 +64,8 @@
           <div class="container">
             <div class="product-slider owl-carousel owl-theme">
             <?php
-              require_once("./lib/db.php");
-              $sql ="select * from sanpham";
-              $result=load($sql);
-             while ($row = $result->fetch_assoc()) {
-
-
             
+             while ($row = $result->fetch_assoc()) {
             ?>
                <div class="item">
                 <div class="product">
@@ -81,7 +76,7 @@
                     </div>
                   </div><a href="Chitiet.php" class="invisible"><img src="./img/product3.jpg" alt="" class="img-fluid"></a>
                   <div class="text">
-                    <h3><a href="?Page=Chitiet&ID=<?php echo($row["ID"]);?>">Black Blouse Versace</a></h3>
+                    <h3><a href="?Page=ChitietSanPham&ID=<?php echo($row["ID"]);?>">Black Blouse Versace</a></h3>
                     <p class="price"> 
                       <del></del><?php echo($row["Gia"]);?>K
                     </p>

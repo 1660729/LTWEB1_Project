@@ -1,15 +1,18 @@
 <?php
-  $page="";
-  if(isset($_GET["Page"]))
-  {
-    $page=$_GET["Page"];
-  }
-  else
-  {
+    $page="";
 
-    $page="SanPham";
-  }
-  require_once("Layout.php");
+    
+   
+    if(isset($_GET["Page"]))
+    {
+      $page=$_GET["Page"];
+    }
+    else
+    {
+
+      $page="HienThiSanPham";
+    }
+    require_once("Layout.php");
 
 
 ?>

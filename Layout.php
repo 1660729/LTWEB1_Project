@@ -43,7 +43,7 @@
             <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
                    <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                  <li class="list-inline-item"><a href="?Page=register">Register</a></li>
+                  <li class="list-inline-item"><a href="?Page=DangKi">Register</a></li>
               </ul>
             </div>
           </div>
@@ -159,8 +159,9 @@
     <div id="all">
    
          <?php
-         
-          require_once($page.'.php');
+          require_once("Suly.php");
+          $Home=new Suly();
+          $Home->$page();
          ?>
 
     </div>

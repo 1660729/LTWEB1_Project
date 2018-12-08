@@ -1,12 +1,7 @@
 
 <?php
-    require_once './lib/db.php';
-    $IDs=$_GET["ID"];
-    $sql="select * from sanpham where ID='$IDs'";
-    $result= load($sql);
+  
     while ($row = $result->fetch_assoc()) {
-
-
 
 ?>
 
@@ -66,109 +61,7 @@
                   <p><a href="#" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></p>
                 </div>
               </div>
-              <div class="row same-height-row">
-                <div class="col-lg-3 col-md-6">
-                  <div class="box same-height" style="height: 347.328px;">
-                    <h3>You may also like these products</h3>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                  <div class="product same-height" style="height: 347.328px;">
-                    <div class="flip-container">
-                      <div class="flipper">
-                        <div class="front"><a href="detail.html"><img src="img/product2.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail.html"><img src="img/product2_2.jpg" alt="" class="img-fluid"></a></div>
-                      </div>
-                    </div><a href="detail.html" class="invisible"><img src="img/product2.jpg" alt="" class="img-fluid"></a>
-                    <div class="text">
-                      <h3>Fur coat</h3>
-                      <p class="price">$143</p>
-                    </div>
-                  </div>
-                  <!-- /.product-->
-                </div>
-                <div class="col-lg-3 col-md-6">
-                  <div class="product same-height" style="height: 347.328px;">
-                    <div class="flip-container">
-                      <div class="flipper">
-                        <div class="front"><a href="detail.html"><img src="img/product1.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail.html"><img src="img/product1_2.jpg" alt="" class="img-fluid"></a></div>
-                      </div>
-                    </div><a href="detail.html" class="invisible"><img src="img/product1.jpg" alt="" class="img-fluid"></a>
-                    <div class="text">
-                      <h3>Fur coat</h3>
-                      <p class="price">$143</p>
-                    </div>
-                  </div>
-                  <!-- /.product-->
-                </div>
-                <div class="col-lg-3 col-md-6">
-                  <div class="product same-height" style="height: 347.328px;">
-                    <div class="flip-container">
-                      <div class="flipper">
-                        <div class="front"><a href="detail.html"><img src="img/product3.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail.html"><img src="img/product3_2.jpg" alt="" class="img-fluid"></a></div>
-                      </div>
-                    </div><a href="detail.html" class="invisible"><img src="img/product3.jpg" alt="" class="img-fluid"></a>
-                    <div class="text">
-                      <h3>Fur coat</h3>
-                      <p class="price">$143</p>
-                    </div>
-                  </div>
-                  <!-- /.product-->
-                </div>
-              </div>
-              <div class="row same-height-row">
-                <div class="col-lg-3 col-md-6">
-                  <div class="box same-height" style="height: 347.328px;">
-                    <h3>Products viewed recently</h3>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                  <div class="product same-height" style="height: 347.328px;">
-                    <div class="flip-container">
-                      <div class="flipper">
-                        <div class="front"><a href="detail.html"><img src="img/product2.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail.html"><img src="img/product2_2.jpg" alt="" class="img-fluid"></a></div>
-                      </div>
-                    </div><a href="detail.html" class="invisible"><img src="img/product2.jpg" alt="" class="img-fluid"></a>
-                    <div class="text">
-                      <h3>Fur coat</h3>
-                      <p class="price">$143</p>
-                    </div>
-                  </div>
-                  <!-- /.product-->
-                </div>
-                <div class="col-lg-3 col-md-6">
-                  <div class="product same-height" style="height: 347.328px;">
-                    <div class="flip-container">
-                      <div class="flipper">
-                        <div class="front"><a href="detail.html"><img src="img/product1.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail.html"><img src="img/product1_2.jpg" alt="" class="img-fluid"></a></div>
-                      </div>
-                    </div><a href="detail.html" class="invisible"><img src="img/product1.jpg" alt="" class="img-fluid"></a>
-                    <div class="text">
-                      <h3>Fur coat</h3>
-                      <p class="price">$143</p>
-                    </div>
-                  </div>
-                  <!-- /.product-->
-                </div>
-                <div class="col-lg-3 col-md-6">
-                  <div class="product same-height" style="height: 347.328px;">
-                    <div class="flip-container">
-                      <div class="flipper">
-                        <div class="front"><a href="detail.html"><img src="img/product3.jpg" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail.html"><img src="img/product3_2.jpg" alt="" class="img-fluid"></a></div>
-                      </div>
-                    </div><a href="detail.html" class="invisible"><img src="img/product3.jpg" alt="" class="img-fluid"></a>
-                    <div class="text">
-                      <h3>Fur coat</h3>
-                      <p class="price">$143</p>
-                    </div>
-                  </div>
-                  <!-- /.product-->
-                </div>
-              </div>
+             
+              
             </div>
         <?php }?>

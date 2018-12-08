@@ -16,7 +16,7 @@
                 <h1>TẠO TÀI KHOẢN MỚI</h1>
                
                 <hr>
-                <form action="#" method="POST">
+                <form action="?Page=ThemTaiKhoan" method="POST">
                   <div class="form-group">
                     <label for="name">Tên đăng nhập</label>
                     <input id="name" type="text" name="NguoiDung" class="form-control">
@@ -58,24 +58,4 @@
         </div>
       </div>
     
-    <?php
-
-        if(isset($_POST["submit"]))
-        {
-        //   require_once("./lib/db.php");
-        //   $TenDangnhap=$_POST["NguoiDung"];
-        //   $MatKhau=$_POST["matKhau"];
-        //   $DienThoai=$_POST["Dientoai"];
-        //   $DiaChi=$_POST["Diachi"];
-        //   $Email=$_POST["Email"];
-        //   $Sql="insert TaiKhoan(NguoiDung,matKhau,Dientoai,Diachi,Email)values('$TenDangnhap','$MatKhau','$DienThoai','$DiaChi','$Email')";
-         
-        //  $result=write($Sql);
-          $page ="";
-           require_once("index.php");
-        }
-          
-
     
-    
-    ?>
