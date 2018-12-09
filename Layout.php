@@ -33,7 +33,9 @@ session_start();
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-
+        
+       
+        <script  type="text/javascript" src="js/SulyLogin.js" ></script>
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   </head>
@@ -50,8 +52,9 @@ session_start();
             <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#" class="btn btn-success btn-sm">Offer of the day</a><a href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
             <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
-                    <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                  <li class="list-inline-item"><a href="?Page=DangKi"><?php if(isset($_SESSION["current_user"]))echo($_SESSION["current_user"]->NguoiDung)?></a></li>
+                    <li class="list-inline-item"><a href="#" id="Logf"   data-toggle="modal" data-target="#login-modal">Login</a></li>
+                      <li class="list-inline-item"><a href="?Page=Logout" data-target="#login-modal"><?php if(isset($_SESSION["current_user"]))echo($_SESSION["current_user"]->NguoiDung)?></a></li>
+                  <li class="list-inline-item"><a href="?Page=DangKi">Đăng Kí</a></li>
               </ul>
             </div>
           </div>
@@ -64,15 +67,15 @@ session_start();
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
               </div>
               <div class="modal-body">
-                <form action="?Page=DangNhap" method="POST">
+                <form action="?Page=DangNhap" method="POST" >
                   <div class="form-group">
                     <input id="email-modal" type="text" name="txtUserName" placeholder="email" class="form-control">
                   </div>
                   <div class="form-group">
-                    <input id="password-modal" type="password" name="txtPassword" placeholder="password" class="form-control">
+                    <input id="password-modal" type="password"  name="txtPassword" placeholder="password" class="form-control">
                   </div>
                   <p class="text-center">
-                    <button class="btn btn-primary" name="btnLogin"><i class="fa fa-sign-in"></i> Log in</button>
+                    <button class="btn btn-primary"  name="btnLogin"><i class="fa fa-sign-in"></i> Log in</button>
                   </p>
                 </form>
                 <p class="text-center text-muted">Not registered yet?</p>
@@ -210,5 +213,8 @@ session_start();
     <script src="./vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="./js/front.js"></script>
+
+
+
   </body>
 </html>

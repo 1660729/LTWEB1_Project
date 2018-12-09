@@ -105,6 +105,12 @@ class Suly
 
     }
 
+    function Logout()
+    {
+        unset($_SESSION["current_user"]);
+        
+        $this->HienThiSanPham();
+    }
 
     
 
