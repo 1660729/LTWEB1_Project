@@ -1,3 +1,11 @@
+
+<?PHP 
+session_start();
+
+	
+?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,8 +50,8 @@
             <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#" class="btn btn-success btn-sm">Offer of the day</a><a href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
             <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
-                   <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                  <li class="list-inline-item"><a href="?Page=DangKi">Register</a></li>
+                    <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  <li class="list-inline-item"><a href="?Page=DangKi"><?php if(isset($_SESSION["current_user"]))echo($_SESSION["current_user"]->NguoiDung)?></a></li>
               </ul>
             </div>
           </div>
@@ -56,7 +64,7 @@
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
               </div>
               <div class="modal-body">
-                <form action="?Page=login" method="POST">
+                <form action="?Page=DangNhap" method="POST">
                   <div class="form-group">
                     <input id="email-modal" type="text" name="txtUserName" placeholder="email" class="form-control">
                   </div>

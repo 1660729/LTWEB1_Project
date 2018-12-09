@@ -1,7 +1,7 @@
 <?php
     $page="";
 
-    
+   
    
     if(isset($_GET["Page"]))
     {

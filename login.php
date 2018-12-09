@@ -1,5 +1,5 @@
 <?php
-require_once './lib/db.php';
+	require_once './lib/db.php';
 
 	if(!isset($_SESSION["dang_nhap_chua"])) {
 		$_SESSION["dang_nhap_chua"] = 0;
