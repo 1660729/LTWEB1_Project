@@ -108,11 +108,18 @@ class Suly
     function Logout()
     {
         unset($_SESSION["current_user"]);
-        
+
         $this->HienThiSanPham();
     }
 
-    
+    function GioHang()
+    {
+        if(isset($_SESSION["current_user"]))
+        {
+            require_once("GioHang.php");
+        }
+        echo("Ban Chua dang nhập");
+    }
 
 }
 ?>

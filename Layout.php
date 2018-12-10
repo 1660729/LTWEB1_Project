@@ -63,7 +63,7 @@ session_start();
           <div class="modal-dialog modal-sm">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">Customer login</h5>
+                <h5 class="modal-title">Đăng nhập</h5>
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
               </div>
               <div class="modal-body">
@@ -149,7 +149,7 @@ session_start();
             <div class="navbar-buttons d-flex justify-content-end">
               <!-- /.nav-collapse-->
               <div id="search-not-mobile" class="navbar-collapse collapse"></div><a data-toggle="collapse" href="#search" class="btn navbar-btn btn-primary d-none d-lg-inline-block"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></a>
-              <div id="basket-overview" class="navbar-collapse collapse d-none d-lg-block"><a href="#" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span>items in cart</span></a></div>
+              <div id="basket-overview" class="navbar-collapse collapse d-none d-lg-block"><a href="?Page=GioHang" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span>items in cart</span></a></div>
             </div>
           </div>
         </div>

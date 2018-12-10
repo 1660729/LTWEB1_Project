@@ -4,3 +4,9 @@ function Suly()
     document.getElementById("Logf").innerHTML=ten;
     
 }
+
+
+function ThemDongMoi()
+{
+    var 
+}
