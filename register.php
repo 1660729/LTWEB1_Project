@@ -24,24 +24,24 @@
 
                    <div class="form-group">
                     <label for="password">Mật khẩu</label>
-                    <input id="password" type="password" name="matKhau" class="form-control">
+                    <input id="matKhau" type="password" name="matKhau" class="form-control">
                   </div>
 
                   <div class="form-group">
-                    <label for="email">Điện thoại</label>
-                    <input id="email" type="text" name="Dientoai" class="form-control">
+                    <label for="dienthoai">Điện thoại</label>
+                    <input id="Dientoai" type="text" name="Dientoai" class="form-control">
                   </div>
 
                  
                   <div class="form-group">
-                    <label for="email">Địa chỉ</label>
-                    <input id="email" type="text" name="Diachi" class="form-control">
+                    <label for="diachi">Địa chỉ</label>
+                    <input id="Diachi" type="text" name="Diachi" class="form-control">
                   </div>
 
 
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" type="text" name="Email" class="form-control">
+                    <input id="Email" type="text" name="Email" class="form-control">
                   </div>
 
                   <div class="form-group">

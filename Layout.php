@@ -52,9 +52,9 @@ session_start();
             <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#" class="btn btn-success btn-sm">Offer of the day</a><a href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
             <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
-                    <li class="list-inline-item"><a href="#" id="Logf"   data-toggle="modal" data-target="#login-modal">Login</a></li>
-                      <li class="list-inline-item"><a href="?Page=Logout" data-target="#login-modal"><?php if(isset($_SESSION["current_user"]))echo($_SESSION["current_user"]->NguoiDung)?></a></li>
-                  <li class="list-inline-item"><a href="?Page=DangKi">Đăng Kí</a></li>
+                    <li class="list-inline-item"><a href="#" id="Logf"   data-toggle="modal" data-target="#login-modal">Đăng nhập</a></li>
+                    <li class="list-inline-item"><a href="?Page=Logout" data-target="#login-modal"><?php if(isset($_SESSION["current_user"]))echo($_SESSION["current_user"]->NguoiDung)?></a></li>
+                    <li class="list-inline-item"><a href="?Page=DangKi">Đăng Kí</a></>
               </ul>
             </div>
           </div>
@@ -69,7 +69,7 @@ session_start();
               <div class="modal-body">
                 <form action="?Page=DangNhap" method="POST" >
                   <div class="form-group">
-                    <input id="email-modal" type="text" name="txtUserName" placeholder="email" class="form-control">
+                    <input id="email-modal" type="text" name="txtUserName" placeholder="username" class="form-control">
                   </div>
                   <div class="form-group">
                     <input id="password-modal" type="password"  name="txtPassword" placeholder="password" class="form-control">
@@ -78,8 +78,7 @@ session_start();
                     <button class="btn btn-primary"  name="btnLogin"><i class="fa fa-sign-in"></i> Log in</button>
                   </p>
                 </form>
-                <p class="text-center text-muted">Not registered yet?</p>
-                <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+                
               </div>
             </div>
           </div>
@@ -156,11 +155,11 @@ session_start();
       </nav>
       <div id="search" class="collapse">
         <div class="container">
-          <form role="search" class="ml-auto">
+          <form role="search" class="ml-auto" action="?Page=TimKiem">
             <div class="input-group">
               <input type="text" placeholder="Search" class="form-control">
               <div class="input-group-append">
-                <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
               </div>
             </div>
           </form>
@@ -170,7 +169,7 @@ session_start();
     <div id="all">
    
          <?php
-          require_once("Suly.php");
+          require_once("SuLy.php");
           $Home=new Suly();
           $Home->$page();
          ?>

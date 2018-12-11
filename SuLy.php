@@ -3,15 +3,37 @@
 class Suly
 {
     function HienThiSanPham()
-    {
-            
+    {         
       
         require_once("./lib/db.php");
-         $sql ="select * from sanpham";
+         $sql ="select * from sanpham limit 10";
          $result=load($sql);
         require_once("SanPham.php");
     } 
 
+    function SanPhamMoiNhat()
+    {
+        require_once("./lib/db.php");
+        $sql = "select * from sanpham order by NgayTao desc limit 10";
+        $result=load($sql);
+        require_once("MoiNhat.php");
+    }
+
+    function SanPhamBanChayNhat()
+    {
+        require_once("./lib/db.php");
+        $sql = "select * from sanpham where TinhTrang = 1 order by SoLuong desc limit 10";
+        $result=load($sql);
+        require_once("BanChayNhat.php");
+    }
+
+    function SanPhamXemNhieuNhat()
+    {
+        require_once("./lib/db.php");
+        $sql = "select *  sanpham order by LuotXem desc limit 10";
+        $result=load($sql);
+        require_once("XemNhieuNhat.php");
+    }
 
 
     function DangNhap()
@@ -70,7 +92,7 @@ class Suly
                         $DiaChi=$_POST["Diachi"];
                         $Email=$_POST["Email"];
                         $ma=uniqid();
-                        $Sql="insert TaiKhoan(ID,NguoiDung,matKhau,Dientoai,Diachi,Email)values('$ma','$TenDangnhap','$MKMD5','$DienThoai','$DiaChi','$Email')";
+                        $Sql="insert into taikhoan(ID, NguoiDung,MatKhau,DienThoai,DiaChi,Email) values('$ma', '$TenDangnhap','$MKMD5','$DienThoai','$DiaChi','$Email')";
                       
 
                         $result=write($Sql);
@@ -107,9 +129,15 @@ class Suly
 
     function Logout()
     {
-        unset($_SESSION["current_user"]);
+        //unset($_SESSION["current_user"]);
 
-        $this->HienThiSanPham();
+        //$this->HienThiSanPham();
+        
+        if (isset($_SESSION["dang_nhap_chua"])) {
+	        unset($_SESSION["dang_nhap_chua"]);
+            unset($_SESSION["current_user"]);
+        }
+        require_once("index.php");
     }
 
     function GioHang()
@@ -120,6 +148,21 @@ class Suly
         }
         echo("Ban Chua dang nhập");
     }
+
+    function TimKiem()
+    {
+        if(isset($_REQUEST["subSearch"]))
+        {
+            $inputSearch = $_REQUEST["txtSearch"];
+            $search = $_REQUEST["subSearch"];
+            $sql = "select * from sanpham where TenSP like '%$inputSearch%' 
+                    or LoaiSP like '%$inputSearch%' or XuatXu like '%$inputSearch%'
+                    or NhaSanXuatId like '%$inputSearch%'";
+            $result = write($sql);
+            require_once("Chitiet.php");
+        }
+    }
+
 
 }
 ?>

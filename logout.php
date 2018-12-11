@@ -6,4 +6,3 @@ if (isset($_SESSION["dang_nhap_chua"])) {
 }
 
 header('Location: index.php');
-?>

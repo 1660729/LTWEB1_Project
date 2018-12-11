@@ -1,4 +1,4 @@
-  <div id="content">
+<div id="content">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
@@ -56,7 +56,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-12">
-                  <h2 class="mb-0">Sản phẩm mới nhất</h2>
+                  <h2 class="mb-0">Sản phẩm xem nhiều nhất</h2>
                 </div>
               </div>
             </div>
