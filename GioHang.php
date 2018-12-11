@@ -46,10 +46,10 @@
                   </div>
                   <!-- /.table-responsive-->
                   <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
-                    <div class="left"><a href="category.html" class="btn btn-outline-secondary"><i class="fa fa-chevron-left"></i> Continue shopping</a></div>
+                    <div class="left"><a href="?page=index" class="btn btn-outline-secondary"><i class="fa fa-chevron-left"></i> Continue shopping</a></div>
                     <div class="right">
-                      <button class="btn btn-outline-secondary"><i class="fa fa-refresh"></i> Update cart</button>
-                      <button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i></button>
+                      <button class="btn btn-outline-secondary"><i class="fa fa-refresh"></i> Cập nhật giỏ hàng</button>
+                      <button type="submit" class="btn btn-primary">Thanh toán <i class="fa fa-chevron-right"></i></button>
                     </div>
                   </div>
                 </form>
