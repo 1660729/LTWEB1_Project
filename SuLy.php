@@ -7,7 +7,7 @@ class Suly
             
       
         require_once("./lib/db.php");
-#10 sản phẩm mới nhất
+            #10 sản phẩm mới nhất
          $sql1 ="select * from sanpham order by sanpham.Ngaytao desc limit 0,10;";
          $SapMoi=load($sql1);
 

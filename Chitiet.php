@@ -12,7 +12,7 @@
 
                 <div class="col-md-6">
                   <div data-slider-id="1" >
-                    <div class="item"> <img src="<?php echo($row["HinhAnh"])?>" alt="" class="img-fluid"></div>
+                    <div class="item"> <img src="<?php echo($row["Hinhanh"])?>" alt="" class="img-fluid"></div>
                   </div>
                  
                   <!-- /.ribbon-->
@@ -22,9 +22,9 @@
                     <h1 class="text-center"><?php echo($row["TenSP"])?></h1>
                     <p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details, material &amp; care and sizing</a></p>
                     <p class="price"><?php echo($row["Gia"])?></p>
-                    <p>Số lượt xem: <?php echo($row["LuotXem"])?> </p>
-                    <p>Số lương bán: <?php echo($row["SoLuong"])?> <p>
-                    <p>Mô tả: <?php echo($row["MoTa"])?> <p>
+                    <p>Số lượt xem: <?php echo($row["Luotxem"])?> </p>
+                    <p>Số lương bán: <?php echo($row["Soluong"])?> <p>
+                    <p>Mô tả: <?php echo($row["Mota"])?> <p>
                      <p>Xuất xứ:<?php echo($row["XuatXu"])?> <p>
                     <p>Loại: <?php echo($row["LoaiSP"])?></p>
                     <p>Nhà sản xuất: </p>
