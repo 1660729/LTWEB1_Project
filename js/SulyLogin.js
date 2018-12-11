@@ -5,8 +5,3 @@ function Suly()
     
 }
 
-
-function ThemDongMoi()
-{
-    var 
-}

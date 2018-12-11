@@ -7,10 +7,22 @@ class Suly
             
       
         require_once("./lib/db.php");
-         $sql ="select * from sanpham";
-         $result=load($sql);
+#10 sản phẩm mới nhất
+         $sql1 ="select * from sanpham order by sanpham.Ngaytao desc limit 0,10;";
+         $SapMoi=load($sql1);
+
+
+#10 sản phẩm xem nhiều nhất
+        $sql = "select * from  sanpham order by LuotXem desc limit 10";
+        $result=load($sql);
+
+#10 sản phẩm bán chạy nhất
+        $sql2 = "select * from sanpham where TinhTrang = 1 order by SoLuong desc limit 10";
+        $BanChay=load($sql2);
         require_once("SanPham.php");
     } 
+
+
 
 
 
@@ -114,9 +126,54 @@ class Suly
 
     function GioHang()
     {
+          require_once './lib/db.php';
         if(isset($_SESSION["current_user"]))
         {
+
+            $MaND=$_SESSION["current_user"]->ID;
+            $SqlMaND="select Dathang.ID from Dathang where Dathang.NguoiDungID='$MaND'";
+            $resultMaDH=load($SqlMaND);
+            $M1=$resultMaDH->fetch_object();
+            $ma2=$M1->ID;
+
+            #Hiển thị danh sách sản phẩm trong giỏ hàng
+            $SqlLayTBgioHang="select SanPham.Hinhanh,SanPham.TenSP,SanPham.Gia from ChiTietDathang join SanPham on ChiTietDathang.MaSP=SanPham.MaSP
+where ChiTietDathang.DatHangID='$ma2'";
+            $resqul=load($SqlLayTBgioHang);
+
+
+
+
             require_once("GioHang.php");
+        }
+        echo("Ban Chua dang nhập");
+    }
+
+
+    function ThemSPGihang()
+    {
+         require_once './lib/db.php';
+        if(isset($_SESSION["current_user"]))
+        {
+            $maSp=$_GET["ID"];
+            $Gia=$_GET["Gia"];
+            $Sl=$_GET["Sluong"];
+            $tenSp=$_GET["TenSP"];
+
+
+              #tạo đơn đăt hàng
+            $IDND=$_SESSION["current_user"]->ID;
+              $MaDathang=uniqid();
+            $SqlDonDhang="insert into Dathang(ID,NguoiDungID)values('$MaDathang','$IDND')";
+            $NhanDonDH=write($SqlDonDhang);
+            #Tạo chi tiết đơn hàng
+            $maChitiet=uniqid();
+            $SqlChitiet="insert ChiTietDathang(ID,DatHangID,MaSP,Gia)values('$maChitiet','$MaDathang','$maSp','$Gia')";
+            $NhonChitiet=write($SqlChitiet);
+
+
+
+            $this->GioHang();
         }
         echo("Ban Chua dang nhập");
     }

@@ -22,23 +22,24 @@
                         </tr>
                       </thead>
                       <tbody >
+                      <?php while($row=$resqul->fetch_assoc()){?>
                         <tr>
-                          <td><a href="#"><img src="img/detailsquare.jpg" alt="White Blouse Armani"></a></td>
-                          <td><a href="#">White Blouse Armani</a></td>
+                          <td><a href="#"><img src="<?php echo($row["Hinhanh"])?>" alt="White Blouse Armani"></a></td>
+                          <td><a href="#"><?php echo($row["TenSP"])?></a></td>
                           <td>
-                            <input type="number" value="2" class="form-control">
+                            <input type="number" value="0" class="form-control">
                           </td>
-                          <td>$123.00</td>
+                          <td><?php echo($row["Gia"])?></td>
                           <td>$0.00</td>
                           <td>$246.00</td>
                           <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
                         </tr>
-                        
+                        <?php }?>
                       </tbody>
                       <tfoot>
                         <tr>
                           <th colspan="5">Total</th>
-                          <th colspan="2">$446.00</th>
+                          <th colspan="2">0</th>
                         </tr>
                       </tfoot>
                     </table>
