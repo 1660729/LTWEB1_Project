@@ -95,21 +95,25 @@
                     <div class="form-group">
                     <label for="slLoaiSP">Loại sản phẩm</label>
                         <select class="custom-select mr-sm-2" id="slLoaiSP" name="slLoaiSP" value="<?= $LoaiSP ?>">
-                            <option selected>Choose...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="3">4</option>
+							<?php 
+								$sql = "select * from danhmuc";
+								$rs = load($sql);
+								while ($row = $rs->fetch_assoc()) :
+							?>
+                            <option value="<?= $row["ID"] ?>"><?= $row["Ten"] ?></option>
+							<?php endwhile; ?>
                         </select>
                     </div>
                     <div class="form-group">
                     <label for="slNhaSanXuat">Nhà sản xuất</label>
                         <select class="custom-select mr-sm-2" id="slNhaSanXuat" name="slNhaSanXuat" value="<?= $NSXID ?>">
-                            <option selected>Choose...</option>
-                            <option value="1">1 (VietNam)</option>
-                            <option value="2">2 (USA)</option>
-                            <option value="3">3 (ThaiLan)</option>
-                            <option value="3">4 (QuangChau)</option>
+							<?php 
+								$sql = "select * from nhasanxuat";
+								$rs = load($sql);
+								while ($row = $rs->fetch_assoc()) :
+							?>
+                            <option value="<?= $row["ID"] ?>"><?= $row["Ten"] ?></option>
+							<?php endwhile; ?>
                         </select>
                     </div>
                     <div class="form-group">
@@ -126,6 +130,7 @@
                     </div>
                     <div class="form-group">
                         <label for="txtHinhAnh">Hình ảnh</label>
+				
                         <input type="file" class="form-control-file" id="txtHinhAnh" name="txtHinhAnh" value="<?= $HinhAnh ?>">
                     </div>
                     <div class="form-group">

@@ -71,9 +71,11 @@
                     </a>
                     
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="order.php" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Danh sách đơn hàng</span>
+                    </a>
+                    
                 </li>
             </ul>
