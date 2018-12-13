@@ -11,8 +11,7 @@
     {
 
       $page="HienThiSanPham";
-      //$page = "SanPhamBanChayNhat";
-      //$page = "SanPhamXemNhieuNhat";
+      
     }
     require_once("Layout.php");
 

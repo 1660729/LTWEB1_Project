@@ -53,7 +53,7 @@ session_start();
             <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
                     <li class="list-inline-item"><a href="#" id="Logf"   data-toggle="modal" data-target="#login-modal">Đăng nhập</a></li>
-                    <li class="list-inline-item"><a href="?Page=Logout" data-target="#login-modal"><?php if(isset($_SESSION["current_user"]))echo($_SESSION["current_user"]->NguoiDung)?></a></li>
+                    <li class="list-inline-item"><a href="?Page=DangNhap" data-target="#login-modal"><?php if(isset($_SESSION["current_user"])) echo($_SESSION["current_user"]->NguoiDung)?></a></li>
                     <li class="list-inline-item"><a href="?Page=DangKi">Đăng Kí</a></>
               </ul>
             </div>
@@ -69,10 +69,10 @@ session_start();
               <div class="modal-body">
                 <form action="?Page=DangNhap" method="POST" >
                   <div class="form-group">
-                    <input id="email-modal" type="text" name="txtUserName" placeholder="username" class="form-control">
+                    <input id="txtUserName" type="text" name="txtUserName" placeholder="username" class="form-control">
                   </div>
                   <div class="form-group">
-                    <input id="password-modal" type="password"  name="txtPassword" placeholder="password" class="form-control">
+                    <input id="txtPassword" type="password"  name="txtPassword" placeholder="password" class="form-control">
                   </div>
                   <p class="text-center">
                     <button class="btn btn-primary"  name="btnLogin"><i class="fa fa-sign-in"></i> Log in</button>
@@ -95,7 +95,7 @@ session_start();
           </div>
           <div id="navigation" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+              <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
               <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Men<b class="caret"></b></a>
                 <ul class="dropdown-menu megamenu">
                   <li>
@@ -196,7 +196,7 @@ session_start();
           </div>
           <div class="col-lg-6">
             <p class="text-center text-lg-right">Template design by <a href="https://bootstrapious.com/e-commerce-templates">Bootstrapious: E-commerce</a>
-              <!-- Not removing these links is part of the licence conditions of the template. Thanks for understanding :)-->
+              <!-- Not removing these links is part of the licence conditions of the template. Thanks for understanding :-->
             </p>
           </div>
         </div>
