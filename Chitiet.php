@@ -12,7 +12,7 @@
 
                 <div class="col-md-6">
                   <div data-slider-id="1" >
-                    <div class="item"> <img src="<?php echo($row["Hinhanh"])?>" alt="" class="img-fluid"></div>
+                    <div class="item"> <img src="<?php echo($row["HinhAnh"])?>" alt="" class="img-fluid"></div>
                   </div>
                  
                   <!-- /.ribbon-->
@@ -22,16 +22,16 @@
                     <h1 class="text-center"><?php echo($row["TenSP"])?></h1>
                     <p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details, material &amp; care and sizing</a></p>
                     <p class="price"><?php echo($row["Gia"])?></p>
-                    <p>Số lượt xem: <?php echo($row["Luotxem"])?> </p>
-                    <p>Số lương bán: <?php echo($row["Soluong"])?> <p>
-                    <p>Mô tả: <?php echo($row["Mota"])?> <p>
+                    <p>Số lượt xem: <?php echo($row["LuotXem"])?> </p>
+                    <p>Số lương bán: <?php echo($row["SoLuong"])?> <p>
+                    <p>Mô tả: <?php echo($row["MoTa"])?> <p>
                      <p>Xuất xứ:<?php echo($row["XuatXu"])?> <p>
                     <p>Loại: <?php echo($row["LoaiSP"])?></p>
                     <p>Nhà sản xuất: </p>
 
 
 
-                    <p class="text-center buttons"><a href="?Page=ThemSPGihang&ID=<?php echo($row["ID"])?>&Gia=<?php echo($row["Gia"])?>&Sluong=<?php echo($row["Soluong"])?>&TenSP=<?php echo($row["TenSP"])?>" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a><a href="basket.html" class="btn btn-outline-primary"><i class="fa fa-heart"></i> Add to wishlist</a></p>
+                    <p class="text-center buttons"><a href="?Page=ThemSPGihang&ID=<?php echo($row["MaSP"])?>&Gia=<?php echo($row["Gia"])?>&Sluong=<?php echo($row["SoLuong"])?>&TenSP=<?php echo($row["TenSP"])?>" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a><a href="basket.html" class="btn btn-outline-primary"><i class="fa fa-heart"></i> Add to wishlist</a></p>
                   </div>
                   
                 </div>
@@ -50,7 +50,7 @@
                   <div class="product same-height">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="?Page=ChitietSanPham&ID=<?php echo($CL["ID"])?>"><img src="<?php if($CL["Hinhanh"])echo($CL["Hinhanh"]) ?>" alt="Không hình" class="img-fluid"></a></div>
+                        <div class="front"><a href="?Page=ChitietSanPham&ID=<?php echo($CL["ID"])?>"><img src="<?php if($CL["HinhAnh"])echo($CL["HinhAnh"]) ?>" alt="Không hình" class="img-fluid"></a></div>
                         
                       </div>
                     </div><a href="detail.html" class="invisible"><img src="img/product2.jpg" alt="" class="img-fluid"></a>
@@ -75,10 +75,10 @@
                   <div class="product same-height">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail.html"><img src=" <?php if($CNSX["Hinhanh"])echo($CNSX["Hinhanh"]) ?>" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="detail.html"><img src=" <?php if($CNSX["HinhAnh"])echo($CNSX["HinhAnh"]) ?>" alt="" class="img-fluid"></a></div>
                       
                       </div>
-                    </div><a href="detail.html" class="invisible"><img src="<?php if($CNSX["Hinhanh"])echo($CNSX["Hinhanh"]) ?>" alt="" class="img-fluid"></a>
+                    </div><a href="detail.html" class="invisible"><img src="<?php if($CNSX["HinhAnh"])echo($CNSX["HinhAnh"]) ?>" alt="" class="img-fluid"></a>
                     <div class="text">
                       <h3><?php echo($CNSX["TenSP"])?></h3>
                       <p class="price"><?php echo($CNSX["Gia"])?>k</p>

@@ -28,6 +28,8 @@ session_start();
     <link rel="stylesheet" href="./css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="./css/custom.css">
+ <script src="./vendor/jquery/jquery.min.js"></script>
+      <link rel="stylesheet" href="./css/hienthi.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -95,55 +97,10 @@ session_start();
           </div>
           <div id="navigation" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
-              <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Men<b class="caret"></b></a>
-                <ul class="dropdown-menu megamenu">
-                  <li>
-                    <div class="row">
-                      <div class="col-md-6 col-lg-3">
-                        <h5>Quần áo</h5>
-                        <ul class="list-unstyled mb-3">               
-                          <li class="nav-item"><a href="#" class="nav-link">Áo thun</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link">Áo khoác</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link">Quần jeans</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-6 col-lg-3">
-                        <h5>Giày</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="#" class="nav-link">Giày thể thao</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link">Giày Sandals</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link">Giày lười</a></li>                         
-                        </ul>
-                      </div>                      
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Ladies<b class="caret"></b></a>
-                <ul class="dropdown-menu megamenu">
-                  <li>
-                    <div class="row">
-                      <div class="col-md-6 col-lg-3">
-                        <h5>Quần áo</h5>
-                        <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="#" class="nav-link">Áo thun</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link">Áo khoác</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link">Quần jeans</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-6 col-lg-3">
-                        <h5>Giày</h5>
-                        <ul class="list-unstyled mb-3">
-                          <li class="nav-item"><a href="#" class="nav-link">Giày thể thao</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link">Giày Sandals</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link">Giày lười</a></li> 
-                        </ul>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </li>              
+             
+             
+               <?php require_once("header.php")?>
+                        
             </ul>
             <div class="navbar-buttons d-flex justify-content-end">
               <!-- /.nav-collapse-->
@@ -204,7 +161,7 @@ session_start();
     </div>
     <!-- *** COPYRIGHT END ***-->
     <!-- JavaScript files-->
-    <script src="./vendor/jquery/jquery.min.js"></script>
+   
     <script src="./vendor/popper.js/umd/popper.min.js"> </script>
     <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="./vendor/jquery.cookie/jquery.cookie.js"> </script>

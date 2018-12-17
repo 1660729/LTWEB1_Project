@@ -10,11 +10,11 @@
     else
     {
 
-      $page="HienThiSanPham";
+      $page="HienThi";
       
     }
     
-    require_once("Layout.php");
+    require_once("LayOutQLy.php");
 
 
 ?>

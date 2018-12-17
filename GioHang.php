@@ -27,12 +27,12 @@
                           <td><a href="#"><img src="<?php echo($row["Hinhanh"])?>" alt="White Blouse Armani"></a></td>
                           <td><a href="#"><?php echo($row["TenSP"])?></a></td>
                           <td>
-                            <input type="number" value="0" class="form-control">
+                            <input type="number" class="<?php echo $row["ID"]?>" value="1" onchange="TongTien(this)" class="form-control">
                           </td>
-                          <td><?php echo($row["Gia"])?></td>
+                          <td class="<?php echo $row["ID"]?>"><?php echo($row["Gia"])?></td>
                           <td>$0.00</td>
-                          <td>$246.00</td>
-                          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                          <td class="<?php echo $row["ID"]?>"><?php echo($row["Gia"])?></td>
+                          <td><a href="?Page=XoaSPGioHang&ID=<?php echo $row["ID"]?>" ><i class="fa fa-trash-o"></i></a></td>
                         </tr>
                         <?php }?>
                       </tbody>
@@ -93,3 +93,44 @@
           </div>
         </div>
       </div>
+<script>
+
+  function TongTien(a)
+  {
+
+
+     var x = String(a.getAttribute("class"));
+    //   var Soluong=document.getElementsByClassName(x)[0].value;
+    //   var GiaHienyai=  document.getElementsByClassName(x)[1].innerHTML;
+    // var tongtien= document.getElementsByClassName(x)[2];
+    //       tongtien.innerHTML=Soluong*GiaHienyai;
+    //     var tongt= tongtien.innerHTML;
+       
+
+   // Gọi ajax
+     //var ChuoiG='Ma1='+Ma+'&Ten1='+Ten+'&Mk1='+Mk;
+    var xhr=new XMLHttpRequest();
+
+    xhr.open("POST","index.php?Page=TongTiens",true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader("MaCt","12");
+    xhr.onreadystatechange=function()
+    {
+        if(xhr.readyState==4&&xhr.status==200)
+        {
+            alert("thành công");
+        }
+    }
+    xhr.send(null);
+}
+
+function XoaSp()
+{
+
+    alert(TenSP);
+}
+
+
+
+
+</script>

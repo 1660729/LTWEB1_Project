@@ -7,19 +7,21 @@ class Suly
             
       
         require_once("./lib/db.php");
-            #10 sản phẩm mới nhất
+             #10 sản phẩm mới nhất
          $sql1 ="select * from sanpham order by sanpham.Ngaytao desc limit 0,10;";
          $SapMoi=load($sql1);
 
 
-#10 sản phẩm xem nhiều nhất
-        $sql = "select * from  sanpham order by LuotXem desc limit 10";
-        $result=load($sql);
+            #10 sản phẩm xem nhiều nhất
+            $sql = "select * from  sanpham order by LuotXem desc limit 10";
+            $result=load($sql);
 
-#10 sản phẩm bán chạy nhất
-        $sql2 = "select * from sanpham where TinhTrang = 1 order by SoLuong desc limit 10";
-        $BanChay=load($sql2);
-        require_once("SanPham.php");
+                #10 sản phẩm bán chạy nhất
+            $sql2 = "select * from sanpham where TinhTrang = 1 order by SoLuong desc limit 10";
+            $BanChay=load($sql2);
+           require_once("SanPham.php");
+           //header("location:admin/index.php");
+         
     } 
 
 
@@ -37,7 +39,7 @@ class Suly
         {
             $username = $_POST["txtUserName"];
             $password = $_POST["txtPassword"];
-            $enc_password = $password;//md5($password);
+            $enc_password =md5($password);//md5($password);
 
             $sql = "select * from taikhoan where NguoiDung = '$username' and MatKhau = '$enc_password'";
             $rs = load($sql);
@@ -46,8 +48,14 @@ class Suly
                     
                     $_SESSION["current_user"] = $rs->fetch_object();
                     $_SESSION["dang_nhap_chua"] = 1;
+
+
                    $this->HienThiSanPham();
                 } 
+                else
+                {
+                    echo("Tai khoan khong dung");
+                }
         }
       
     }
@@ -82,10 +90,19 @@ class Suly
                         $DiaChi=$_POST["Diachi"];
                         $Email=$_POST["Email"];
                         $ma=uniqid();
-                        $Sql="insert TaiKhoan(ID,NguoiDung,matKhau,Dientoai,Diachi,Email)values('$ma','$TenDangnhap','$MKMD5','$DienThoai','$DiaChi','$Email')";
+                        $Sql="insert taikhoan(ID,NguoiDung,MatKhau,DienThoai,DiaChi,Email)values('$ma','$TenDangnhap','$MKMD5','$DienThoai','$DiaChi','$Email')";
                       
 
                         $result=write($Sql);
+
+
+                        
+                      #tạo đơn đăt hàng
+                   
+                    $MaDathang=uniqid();
+                    $SqlDonDhang="insert into dathang(ID,UserId)values('$MaDathang','$ma')";
+                    $NhanDonDH=write($SqlDonDhang);
+
                         $this->HienThiSanPham();
 
                     }
@@ -102,7 +119,7 @@ class Suly
     {
           require_once './lib/db.php';
         $IDs=$_GET["ID"];
-        #Lấy ra sản phầm bằng
+        #Lấy ra  chi tiết sản phầm bằng
         $ThongTinSP="select * from sanpham where ID='$IDs'";
         $result= load($ThongTinSP);
        
@@ -131,14 +148,14 @@ class Suly
         {
 
             $MaND=$_SESSION["current_user"]->ID;
-            $SqlMaND="select Dathang.ID from Dathang where Dathang.NguoiDungID='$MaND'";
+            $SqlMaND="select ID from dathang where dathang.UserId='$MaND'";
             $resultMaDH=load($SqlMaND);
             $M1=$resultMaDH->fetch_object();
             $ma2=$M1->ID;
 
             #Hiển thị danh sách sản phẩm trong giỏ hàng
-            $SqlLayTBgioHang="select SanPham.Hinhanh,SanPham.TenSP,SanPham.Gia from ChiTietDathang join SanPham on ChiTietDathang.MaSP=SanPham.MaSP
-where ChiTietDathang.DatHangID='$ma2'";
+            $SqlLayTBgioHang="select ChiTietDathang.ID,SanPham.MaSP,SanPham.Hinhanh,SanPham.TenSP,SanPham.Gia from ChiTietDathang join SanPham on ChiTietDathang.MaSP=SanPham.MaSP
+                where ChiTietDathang.DatHangID='$ma2'";
             $resqul=load($SqlLayTBgioHang);
 
 
@@ -159,24 +176,84 @@ where ChiTietDathang.DatHangID='$ma2'";
             $Gia=$_GET["Gia"];
             $Sl=$_GET["Sluong"];
             $tenSp=$_GET["TenSP"];
+            
+              $IDND=$_SESSION["current_user"]->ID;
 
+            $sql="select ID from dathang where UserId='$IDND';";
+            $re=load($sql);
+            $r1=$re->fetch_object();
 
-              #tạo đơn đăt hàng
-            $IDND=$_SESSION["current_user"]->ID;
-              $MaDathang=uniqid();
-            $SqlDonDhang="insert into Dathang(ID,NguoiDungID)values('$MaDathang','$IDND')";
-            $NhanDonDH=write($SqlDonDhang);
+            $MaDathang=$r1->ID;
             #Tạo chi tiết đơn hàng
             $maChitiet=uniqid();
-            $SqlChitiet="insert ChiTietDathang(ID,DatHangID,MaSP,Gia)values('$maChitiet','$MaDathang','$maSp','$Gia')";
+            $SqlChitiet="insert chitietdathang(ID,DatHangId,MaSP,Gia)values('$maChitiet','$MaDathang','$maSp','$Gia')";
             $NhonChitiet=write($SqlChitiet);
 
 
 
             $this->GioHang();
         }
-        echo("Ban Chua dang nhập");
+        else
+        {
+             echo("Ban Chua dang nhập");
+        }
+       
     }
+
+
+    function XoaSPGioHang()
+    {
+         require_once './lib/db.php';
+
+        $MaChiTiet=$_GET["ID"];
+
+        $sql="delete from chitietdathang where ID='$MaChiTiet'";
+        $s=write($sql);
+
+        $this->GioHang();
+
+    }
+
+
+    function ThongTinTK()
+    {
+        require_once("ChinhSuaTK.php");
+    }
+
+
+
+    function TongTiens()
+    {
+        $Ma=$_GET["MaCt"];
+
+        
+        $this->GioHang();
+    }
+
+
+
+  function HienThiDSSP()
+  {
+        require_once './lib/db.php';
+        $ma=$_GET["ID"];
+
+        $sql="select * from sanpham where sanpham.LoaiSP='$ma'";
+        $result=load($sql);
+
+      require_once("HienThiSP.php");
+  }
+
+  function HienThiTheoNSX()
+  {
+         require_once './lib/db.php';
+        $ma=$_GET["ID"];
+
+        $sql="select * from sanpham join danhmuc on sanpham.NhaSanXuatId='$ma'";
+        $result=load($sql);
+
+
+      require_once("HienThiNSX.php");
+  }
 
 }
 ?>
