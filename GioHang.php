@@ -24,7 +24,7 @@
                       <tbody >
                       <?php while($row=$resqul->fetch_assoc()){?>
                         <tr>
-                          <td><a href="#"><img src="<?php echo($row["Hinhanh"])?>" alt="White Blouse Armani"></a></td>
+                          <td><a href="#"><img src="<?php echo($row["HinhAnh"])?>" alt="White Blouse Armani"></a></td>
                           <td><a href="#"><?php echo($row["TenSP"])?></a></td>
                           <td>
                             <input type="number" class="<?php echo $row["ID"]?>" value="1" onchange="TongTien(this)" class="form-control">

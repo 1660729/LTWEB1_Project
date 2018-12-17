@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
     $page="";
 
@@ -18,3 +19,6 @@
 
 
 ?>
+=======
+<?php require_once("layout.php") ?>
+>>>>>>> d2f7cd5a6a53824dc1866145839ccdd32475750f

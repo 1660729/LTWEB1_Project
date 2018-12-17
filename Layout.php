@@ -55,7 +55,7 @@ session_start();
             <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
                     <li class="list-inline-item"><a href="#" id="Logf"   data-toggle="modal" data-target="#login-modal">Đăng nhập</a></li>
-                    <li class="list-inline-item"><a href="?Page=Logout" data-target="#login-modal"><?php if(isset($_SESSION["current_user"]))echo($_SESSION["current_user"]->NguoiDung)?></a></li>
+                    <li class="list-inline-item"><a href="?Page=Logout" data-target="#login-modal"><?php if(isset($_SESSION["current_user"])) echo($_SESSION["current_user"]->NguoiDung)?></a></li>
                     <li class="list-inline-item"><a href="?Page=DangKi">Đăng Kí</a></>
               </ul>
             </div>
@@ -71,10 +71,10 @@ session_start();
               <div class="modal-body">
                 <form action="?Page=DangNhap" method="POST" >
                   <div class="form-group">
-                    <input id="email-modal" type="text" name="txtUserName" placeholder="username" class="form-control">
+                    <input id="txtUserName" type="text" name="txtUserName" placeholder="username" class="form-control">
                   </div>
                   <div class="form-group">
-                    <input id="password-modal" type="password"  name="txtPassword" placeholder="password" class="form-control">
+                    <input id="txtPassword" type="password"  name="txtPassword" placeholder="password" class="form-control">
                   </div>
                   <p class="text-center">
                     <button class="btn btn-primary"  name="btnLogin"><i class="fa fa-sign-in"></i> Log in</button>
@@ -97,10 +97,62 @@ session_start();
           </div>
           <div id="navigation" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
+<<<<<<< HEAD
              
              
                <?php require_once("header.php")?>
                         
+=======
+              <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
+              <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Men<b class="caret"></b></a>
+                <ul class="dropdown-menu megamenu">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-6 col-lg-3">
+                        <h5>Quần áo</h5>
+                        <ul class="list-unstyled mb-3">               
+                          <li class="nav-item"><a href="#" class="nav-link">Áo thun</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Áo khoác</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Quần jeans</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-md-6 col-lg-3">
+                        <h5>Giày</h5>
+                        <ul class="list-unstyled mb-3">
+                          <li class="nav-item"><a href="#" class="nav-link">Giày thể thao</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Giày Sandals</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Giày lười</a></li>                         
+                        </ul>
+                      </div>                      
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Ladies<b class="caret"></b></a>
+                <ul class="dropdown-menu megamenu">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-6 col-lg-3">
+                        <h5>Quần áo</h5>
+                        <ul class="list-unstyled mb-3">
+                        <li class="nav-item"><a href="#" class="nav-link">Áo thun</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Áo khoác</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Quần jeans</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-md-6 col-lg-3">
+                        <h5>Giày</h5>
+                        <ul class="list-unstyled mb-3">
+                          <li class="nav-item"><a href="#" class="nav-link">Giày thể thao</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Giày Sandals</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link">Giày lười</a></li> 
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>              
+>>>>>>> d2f7cd5a6a53824dc1866145839ccdd32475750f
             </ul>
             <div class="navbar-buttons d-flex justify-content-end">
               <!-- /.nav-collapse-->
@@ -153,7 +205,7 @@ session_start();
           </div>
           <div class="col-lg-6">
             <p class="text-center text-lg-right">Template design by <a href="https://bootstrapious.com/e-commerce-templates">Bootstrapious: E-commerce</a>
-              <!-- Not removing these links is part of the licence conditions of the template. Thanks for understanding :)-->
+              <!-- Not removing these links is part of the licence conditions of the template. Thanks for understanding :-->
             </p>
           </div>
         </div>

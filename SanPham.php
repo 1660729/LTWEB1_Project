@@ -71,8 +71,13 @@
                 <div class="product">
                   <div class="flip-container">
                     <div class="flipper">
+<<<<<<< HEAD
                       <div class="front"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
                       <div class="back"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
+=======
+                      
+                      <div class="back"><a href="Chitiet.php"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
+>>>>>>> d2f7cd5a6a53824dc1866145839ccdd32475750f
                     </div>
                   </div><a href="Chitiet.php" class="invisible"><img src="./img/product3.jpg" alt="" class="img-fluid"></a>
                   <div class="text">
@@ -116,7 +121,11 @@
                 <div class="product">
                   <div class="flip-container">
                     <div class="flipper">
+<<<<<<< HEAD
                       <div class="front"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
+=======
+                      
+>>>>>>> d2f7cd5a6a53824dc1866145839ccdd32475750f
                       <div class="back"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
                     </div>
                   </div><a href="Chitiet.php" class="invisible"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a>
@@ -162,8 +171,13 @@
                 <div class="product">
                   <div class="flip-container">
                     <div class="flipper">
+<<<<<<< HEAD
                       <div class="front"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
                       <div class="back"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
+=======
+                      
+                      <div class="back"><a href="Chitiet.php"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
+>>>>>>> d2f7cd5a6a53824dc1866145839ccdd32475750f
                     </div>
                   </div><a href="Chitiet.php" class="invisible"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a>
                   <div class="text">
