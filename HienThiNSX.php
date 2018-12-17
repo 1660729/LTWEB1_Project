@@ -2,7 +2,6 @@
         <div class="container">
           <div class="row">
               <?php 
-              
                 while($row= $result->fetch_assoc())
                 {
 

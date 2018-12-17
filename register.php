@@ -18,29 +18,29 @@
                 <hr>
                 <form action="?Page=ThemTaiKhoan" method="POST">
                   <div class="form-group">
-                    <label for="NguoiDung">Tên đăng nhập</label>
-                    <input id="NguoiDung" type="text" name="NguoiDung" class="form-control">
+                    <label for="name">Tên đăng nhập</label>
+                    <input id="name" type="text" name="NguoiDung" class="form-control">
                   </div>
 
                    <div class="form-group">
-                    <label for="matKhau">Mật khẩu</label>
+                    <label for="password">Mật khẩu</label>
                     <input id="matKhau" type="password" name="matKhau" class="form-control">
                   </div>
 
                   <div class="form-group">
-                    <label for="Dientoai">Điện thoại</label>
+                    <label for="dienthoai">Điện thoại</label>
                     <input id="Dientoai" type="text" name="Dientoai" class="form-control">
                   </div>
 
                  
                   <div class="form-group">
-                    <label for="Diachi">Địa chỉ</label>
+                    <label for="diachi">Địa chỉ</label>
                     <input id="Diachi" type="text" name="Diachi" class="form-control">
                   </div>
 
 
                   <div class="form-group">
-                    <label for="Email">Email</label>
+                    <label for="email">Email</label>
                     <input id="Email" type="text" name="Email" class="form-control">
                   </div>
 

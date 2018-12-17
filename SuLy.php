@@ -7,7 +7,6 @@ class Suly
             
       
         require_once("./lib/db.php");
-<<<<<<< HEAD
              #10 sản phẩm mới nhất
          $sql1 ="select * from sanpham order by sanpham.Ngaytao desc limit 0,10;";
          $SapMoi=load($sql1);
@@ -23,21 +22,6 @@ class Suly
            require_once("SanPham.php");
            //header("location:admin/index.php");
          
-=======
-        #10 sản phẩm mới nhất
-         $sql1 ="select * from sanpham order by sanpham.NgayTao desc limit 0,10;";
-         $SapMoi=load($sql1);
-
-
-        #10 sản phẩm xem nhiều nhất
-        $sql = "select * from  sanpham order by LuotXem desc limit 10";
-        $result=load($sql);
-
-        #10 sản phẩm bán chạy nhất
-        $sql2 = "select * from sanpham where TinhTrang = 1 order by SoLuong desc limit 10";
-        $BanChay=load($sql2);
-        require_once("SanPham.php");
->>>>>>> d2f7cd5a6a53824dc1866145839ccdd32475750f
     } 
 
 
@@ -106,11 +90,7 @@ class Suly
                         $DiaChi=$_POST["Diachi"];
                         $Email=$_POST["Email"];
                         $ma=uniqid();
-<<<<<<< HEAD
                         $Sql="insert taikhoan(ID,NguoiDung,MatKhau,DienThoai,DiaChi,Email)values('$ma','$TenDangnhap','$MKMD5','$DienThoai','$DiaChi','$Email')";
-=======
-                        $Sql="insert into taikhoan(ID, NguoiDung, MatKhau, DienThoai, DiaChi, Email) values('$ma','$TenDangnhap','$MKMD5','$DienThoai','$DiaChi','$Email')";
->>>>>>> d2f7cd5a6a53824dc1866145839ccdd32475750f
                       
 
                         $result=write($Sql);
@@ -139,7 +119,7 @@ class Suly
     {
           require_once './lib/db.php';
         $IDs=$_GET["ID"];
-        #Lấy ra  chi tiết sản phầm bằng
+        #Lấy ra sản phầm bằng
         $ThongTinSP="select * from sanpham where ID='$IDs'";
         $result= load($ThongTinSP);
        
@@ -148,7 +128,7 @@ class Suly
          $result1=load($SpCloai);
 
         // #Cùng nhà sản xuất
-        $SungNSX="select * from sanpham where NhaSanXuatId = (select NhaSanXuatId from sanpham  where ID='1') limit 0,5;";
+        $SungNSX="select * from sanpham where NhaSanXuatId= (select NhaSanXuatId from sanpham  where ID='1') limit 0,5;";
         $CSX=load($SungNSX);
         require_once("Chitiet.php");
 
@@ -168,24 +148,18 @@ class Suly
         {
 
             $MaND=$_SESSION["current_user"]->ID;
-<<<<<<< HEAD
             $SqlMaND="select ID from dathang where dathang.UserId='$MaND'";
-=======
-            $SqlMaND="select dathang.ID from dathang where dathang.UserId='$MaND'";
->>>>>>> d2f7cd5a6a53824dc1866145839ccdd32475750f
             $resultMaDH=load($SqlMaND);
             $M1=$resultMaDH->fetch_object();
-            $ma2 = $M1->ID;
+            $ma2=$M1->ID;
 
             #Hiển thị danh sách sản phẩm trong giỏ hàng
-<<<<<<< HEAD
             $SqlLayTBgioHang="select ChiTietDathang.ID,SanPham.MaSP,SanPham.Hinhanh,SanPham.TenSP,SanPham.Gia from ChiTietDathang join SanPham on ChiTietDathang.MaSP=SanPham.MaSP
                 where ChiTietDathang.DatHangID='$ma2'";
-=======
-            $SqlLayTBgioHang="select sanpham.HinhAnh, sanpham.TenSP, sanpham.Gia from chitietdathang join sanpham on chitietdathang.MaSP = sanpham.MaSP
-                            where chitietdathang.DatHangId='$ma2'";
->>>>>>> d2f7cd5a6a53824dc1866145839ccdd32475750f
             $resqul=load($SqlLayTBgioHang);
+
+
+
 
             require_once("GioHang.php");
         }
@@ -209,21 +183,10 @@ class Suly
             $re=load($sql);
             $r1=$re->fetch_object();
 
-<<<<<<< HEAD
             $MaDathang=$r1->ID;
             #Tạo chi tiết đơn hàng
             $maChitiet=uniqid();
             $SqlChitiet="insert chitietdathang(ID,DatHangId,MaSP,Gia)values('$maChitiet','$MaDathang','$maSp','$Gia')";
-=======
-              #tạo đơn đăt hàng
-            $IDND=$_SESSION["current_user"]->ID;
-              $MaDathang=uniqid();
-            $SqlDonDhang="insert into dathang(ID, UserId) values('$MaDathang','$IDND')";
-            $NhanDonDH=write($SqlDonDhang);
-            #Tạo chi tiết đơn hàng
-            $maChitiet=uniqid();
-            $SqlChitiet="insert into chitietdathang(ID, DatHangId, MaSP, Gia) values('$maChitiet','$MaDathang','$maSp','$Gia')";
->>>>>>> d2f7cd5a6a53824dc1866145839ccdd32475750f
             $NhonChitiet=write($SqlChitiet);
 
 

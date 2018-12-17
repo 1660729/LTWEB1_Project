@@ -53,7 +53,7 @@
                         <div class="front"><a href="?Page=ChitietSanPham&ID=<?php echo($CL["ID"])?>"><img src="<?php if($CL["HinhAnh"])echo($CL["HinhAnh"]) ?>" alt="Không hình" class="img-fluid"></a></div>
                         
                       </div>
-                    </div><a href="Chitiet.php" class="invisible"><img src="img/product2.jpg" alt="" class="img-fluid"></a>
+                    </div><a href="detail.html" class="invisible"><img src="img/product2.jpg" alt="" class="img-fluid"></a>
                     <div class="text">
                       <h3><?php echo($CL["TenSP"])?></h3>
                       <p class="price"><?php echo($CL["Gia"])?>k</p>
@@ -78,11 +78,7 @@
                         <div class="front"><a href="detail.html"><img src=" <?php if($CNSX["HinhAnh"])echo($CNSX["HinhAnh"]) ?>" alt="" class="img-fluid"></a></div>
                       
                       </div>
-<<<<<<< HEAD
                     </div><a href="detail.html" class="invisible"><img src="<?php if($CNSX["HinhAnh"])echo($CNSX["HinhAnh"]) ?>" alt="" class="img-fluid"></a>
-=======
-                    </div><a href="Chitiet.php" class="invisible"><img src="<?php if($CNSX["HinhAnh"])echo($CNSX["HinhAnh"]) ?>" alt="" class="img-fluid"></a>
->>>>>>> d2f7cd5a6a53824dc1866145839ccdd32475750f
                     <div class="text">
                       <h3><?php echo($CNSX["TenSP"])?></h3>
                       <p class="price"><?php echo($CNSX["Gia"])?>k</p>
