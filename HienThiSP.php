@@ -5,8 +5,6 @@
                 while($row= $result->fetch_assoc())
                 {
 
-               
-              
               ?>
                
                     <div class="gallery"  style="width: 190px;height: 313px;">

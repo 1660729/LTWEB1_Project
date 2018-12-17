@@ -248,7 +248,7 @@ class Suly
          require_once './lib/db.php';
         $ma=$_GET["ID"];
 
-        $sql="select * from sanpham join danhmuc on sanpham.NhaSanXuatId='$ma'";
+        $sql="select * from sanpham where  sanpham.NhaSanXuatId='$ma'";
         $result=load($sql);
 
 
