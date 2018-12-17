@@ -8,6 +8,7 @@
 		header('Location: category.php');
 	}
 
+	// cập nhật tên danh mục
 	if (isset($_POST["btnUpdate"])) {
 		$u_id = $_POST["txtCatID"];
 		$u_name = $_POST["txtCatName"];
@@ -16,6 +17,7 @@
 		$show_alert = 1;
 	}
 
+	// xóa tên danh mục
 	if (isset($_POST["btnDelete"])) {
 		$d_id = $_POST["txtCatID"];
 		$d_sql = "delete from danhmuc where ID = $d_id";
@@ -33,13 +35,6 @@
 	}
 
 
-	// if (isset($_POST["btnAdd"])) {
-	// 	$name = $_POST["txtCatName"];
-	// 	$sql = "insert into categories(CatName) values('$name')";
-	// 	write($sql);
-
-	// 	$show_alert = 1;
-	// }
 ?>
 
 

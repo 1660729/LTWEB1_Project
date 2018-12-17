@@ -55,13 +55,7 @@
 	}
 
 
-	// if (isset($_POST["btnAdd"])) {
-	// 	$name = $_POST["txtCatName"];
-	// 	$sql = "insert into categories(CatName) values('$name')";
-	// 	write($sql);
 
-	// 	$show_alert = 1;
-	// }
 ?>
 
 

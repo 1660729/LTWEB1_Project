@@ -13,31 +13,34 @@
         $mota = $_POST["slMoTa"];
         $ngaytao = date("Y-m-d H:i:s");
         $soluong = $_POST["txtSoLuong"];
-        // $hinhanh = $_FILES["txtHinhAnh"]["name"];
-        // $hinhanh_tmp = $_FILES["txtHinhAnh"]["tmp_name"];
-        // move_uploaded_file($hinhanh_tmp, 'img/' .$hinhanh);
-
         $gia = $_POST["txtGia"];
         $luotxem = $_POST["txtLuotXem"];
         $tinhtrang = $_POST["txtTinhTrang"];
-
-        $taget = "img/" .basename($_FILES["txtHinhAnh"]["name"]);
-        $images = $_FILES["txtHinhAnh"]["name"];
+        $f = $_FILES['fuHinhAnh'];
+        
 
         
 
         $sql = "insert into sanpham(MaSP, TenSP, LoaiSP, NhaSanXuatId, XuatXu, MoTa, NgayTao, SoLuong, HinhAnh, Gia, LuotXem, TinhTrang) 
-                values('$masp', '$tensp', '$loaisp', '$nhasanxuat', '$xuatxu', '$mota', $ngaytao, '$soluong', '$images', '$gia', '$luotxem', '$tinhtrang')";
+                values('$masp', '$tensp', '$loaisp', '$nhasanxuat', '$xuatxu', '$mota', $ngaytao, '$soluong', '$gia', '$luotxem', '$tinhtrang')";
    
-        write($sql);
-        if(move_uploaded_file($_FILES["txtHinhAnh"]["tmp_name"], $taget))
-        {
-            $msg = "Images uploaded succesfully";
-        }
-        else
-        {
-            $msg = "fail";
-        }
+        $id = write($sql);
+
+        
+	    if ($f["error"] > 0) {
+
+	    } else {
+
+            //mkdir("../imgs/$id");
+
+            $tmp_name = $f["tmp_name"];
+            $name = $f["name"];
+            $destination = "../img/$id" .$name;
+
+            move_uploaded_file($tmp_name, $destination);
+	    }
+        
+        
         
 	}
 ?>
@@ -49,7 +52,18 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Thêm sản phẩm</title>
+    <title>Thêm sản phẩm</title>
+    <script type="text/javascript"> 
+        function OpenUploader()
+        {
+            var width = 450, height = 200;
+            var left = (screen.availWidth - width) / 2;
+            var top = (screen.availHeight - height) / 2;
+            
+            //window.open("upload.php", "", "width=" + width + ", height=" + heith + ", top=" + top + ", left=" + left +", location=0, resizable=0");
+            window.open("upload.php");
+        }
+    </script>
 </head>
 <body>  
 
@@ -126,7 +140,8 @@
 					</div>
                     <div class="form-group">
                         <label for="txtHinhAnh">Hình ảnh</label>
-                        <input type="file" class="form-control-file" id="txtHinhAnh" name="txtHinhAnh" >
+                        <input type="file" class="form-control-file" id="txtHinhAnh" name="fuHinhAnh" >
+                        <!-- <input type="button"  id="btnUpload" name="btnUpload" value="..." onclick="OpenUploader();"> -->
                     </div>
                     <div class="form-group">
 						<label for="txtGia">Giá</label>

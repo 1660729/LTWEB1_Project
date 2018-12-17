@@ -4,6 +4,7 @@
 
 	$show_alert = 0;
 
+	// insert tên danh muc vào bảng danh mục
 	if (isset($_POST["btnAdd"])) {
 		$name = $_POST["txtCatName"];
 		$sql = "insert into danhmuc(Ten) values('$name')";
@@ -39,6 +40,7 @@
 			<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6">
+				<!-- thông báo sau khi thêm thành công -->
 				<?php if ($show_alert == 1) : ?>
 					<div class="alert alert-success" role="alert">
 						<strong>Well done!</strong> You successfully read this important alert message.
