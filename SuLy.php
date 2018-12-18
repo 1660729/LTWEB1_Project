@@ -154,10 +154,16 @@ class Suly
             $ma2=$M1->ID;
 
             #Hiển thị danh sách sản phẩm trong giỏ hàng
-            $SqlLayTBgioHang="select ChiTietDathang.ID,SanPham.MaSP,SanPham.Hinhanh,SanPham.TenSP,SanPham.Gia from ChiTietDathang join SanPham on ChiTietDathang.MaSP=SanPham.MaSP
+            $SqlLayTBgioHang="select ChiTietDathang.ID,SanPham.MaSP,SanPham.Hinhanh,SanPham.TenSP,ChiTietDathang.Gia from ChiTietDathang join SanPham on ChiTietDathang.MaSP=SanPham.MaSP
                 where ChiTietDathang.DatHangID='$ma2'";
             $resqul=load($SqlLayTBgioHang);
 
+            #Lay ra tong so tien trong gio hang hien tai
+
+            $sqlTongtien="select TongGia from dathang where ID='$ma2'";
+            $TT=load($sqlTongtien);
+            $kq3=$TT->fetch_object();
+            $kq5=$kq3->TongGia;
 
 
 
@@ -189,6 +195,14 @@ class Suly
             $SqlChitiet="insert chitietdathang(ID,DatHangId,MaSP,Gia)values('$maChitiet','$MaDathang','$maSp','$Gia')";
             $NhonChitiet=write($SqlChitiet);
 
+            #cập nhật lai đơn đặt hàng
+            $sqlDathang="select Sum(Gia) as Tong from chitietdathang where DatHangId='$MaDathang'";
+            $resul=load($sqlDathang);
+            $kq=$resul->fetch_object();
+            $kq2=$kq->Tong;
+
+            $sqlUpdatedathang="update dathang set TongGia =$kq2 where  ID='$MaDathang'";
+            $kq4=write($sqlUpdatedathang);
 
 
             $this->GioHang();
@@ -210,6 +224,30 @@ class Suly
         $sql="delete from chitietdathang where ID='$MaChiTiet'";
         $s=write($sql);
 
+         $IDND=$_SESSION["current_user"]->ID;
+
+            $sql="select ID from dathang where UserId='$IDND';";
+            $re=load($sql);
+            $r1=$re->fetch_object();
+
+            $MaDathang=$r1->ID;
+
+
+         #cập nhật lai đơn đặt hàng
+            $sqlDathang="select Sum(Gia) as Tong from chitietdathang where DatHangId='$MaDathang'";
+            $resul=load($sqlDathang);
+            $kq=$resul->fetch_object();
+            $kq2=$kq->Tong;
+            if($kq2==null)
+            {
+                $kq2=0;
+            }
+
+            $sqlUpdatedathang="update dathang set TongGia =$kq2 where  ID='$MaDathang'";
+            $kq4=write($sqlUpdatedathang);
+
+
+
         $this->GioHang();
 
     }
@@ -222,12 +260,35 @@ class Suly
 
 
 
-    function TongTiens()
+    function UpdateGioHang($MaID,$SolungSp,$TongTien)
     {
-        $Ma=$_GET["MaCt"];
+       require_once './lib/db.php';
+       $Sql="update chitietdathang set SoLuong=$SolungSp, Gia=$TongTien where ID='$MaID'";
+       $re=write($Sql);
 
-        
-        $this->GioHang();
+       
+
+            $sql="select DatHangID from  ChiTietDathang where ID='$MaID'";
+            $re=load($sql);
+            $r1=$re->fetch_object();
+
+            $MaDathang=$r1->DatHangID;
+
+
+         #cập nhật lai đơn đặt hàng
+            $sqlDathang="select Sum(Gia) as Tong from chitietdathang where DatHangId='$MaDathang'";
+            $resul=load($sqlDathang);
+            $kq=$resul->fetch_object();
+            $kq2=$kq->Tong;
+
+            $sqlUpdatedathang="update dathang set TongGia =$kq2 where  ID='$MaDathang'";
+            $kq4=write($sqlUpdatedathang);
+
+
+                $this->GioHang();
+
+       
+
     }
 
 
@@ -248,7 +309,7 @@ class Suly
          require_once './lib/db.php';
         $ma=$_GET["ID"];
 
-        $sql="select * from sanpham where  sanpham.NhaSanXuatId='$ma'";
+        $sql="select * from sanpham join danhmuc on sanpham.NhaSanXuatId='$ma'";
         $result=load($sql);
 
 

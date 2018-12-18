@@ -39,7 +39,7 @@
                       <tfoot>
                         <tr>
                           <th colspan="5">Total</th>
-                          <th colspan="2">0</th>
+                          <th colspan="2"><?php echo $kq5?></th>
                         </tr>
                       </tfoot>
                     </table>
@@ -99,38 +99,31 @@
   {
 
 
-     var x = String(a.getAttribute("class"));
-    //   var Soluong=document.getElementsByClassName(x)[0].value;
-    //   var GiaHienyai=  document.getElementsByClassName(x)[1].innerHTML;
-    // var tongtien= document.getElementsByClassName(x)[2];
-    //       tongtien.innerHTML=Soluong*GiaHienyai;
-    //     var tongt= tongtien.innerHTML;
-       
+      var x = String(a.getAttribute("class"));
+        var Soluong=document.getElementsByClassName(x)[0].value;
+        var GiaHienyai=  document.getElementsByClassName(x)[1].innerHTML;
+         var tongtien= document.getElementsByClassName(x)[2];
+            tongtien.innerHTML=Soluong*GiaHienyai;
+          var tongt= tongtien.innerHTML;
+        
 
-   // Gọi ajax
-     //var ChuoiG='Ma1='+Ma+'&Ten1='+Ten+'&Mk1='+Mk;
-    var xhr=new XMLHttpRequest();
+    // Gọi ajax
+      //var ChuoiG='Ma1='+Ma+'&Ten1='+Ten+'&Mk1='+Mk;
+      var xhr=new XMLHttpRequest();
 
-    xhr.open("POST","index.php?Page=TongTiens",true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.setRequestHeader("MaCt","12");
-    xhr.onreadystatechange=function()
-    {
-        if(xhr.readyState==4&&xhr.status==200)
-        {
-            alert("thành công");
-        }
-    }
-    xhr.send(null);
-}
-
-function XoaSp()
-{
-
-    alert(TenSP);
-}
-
-
+      xhr.open("GET",'index.php?Page=GioHang&Ma1='+x+'&Sluong='+Soluong+'&TongT='+tongt,true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      //xhr.setRequestHeader("MaCt","12");
+      xhr.onreadystatechange=function()
+      {
+          if(xhr.readyState==4&&xhr.status==200)
+          {
+              alert("Thanh cong");
+          }
+      }
+      xhr.send();
+  
+  }
 
 
 </script>
