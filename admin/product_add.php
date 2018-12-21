@@ -16,30 +16,20 @@
         $gia = $_POST["txtGia"];
         $luotxem = $_POST["txtLuotXem"];
         $tinhtrang = $_POST["txtTinhTrang"];
-        $f = $_FILES['fuHinhAnh'];
-        
+          $target_dir = "../img/";
+            $target_file = $target_dir .uniqid(). basename($_FILES["fuHinhAnh"]["name"]);
+            move_uploaded_file($_FILES["fuHinhAnh"]["tmp_name"],$target_file);
+        $ID=uniqid();
 
-        
-
-        $sql = "insert into sanpham(MaSP, TenSP, LoaiSP, NhaSanXuatId, XuatXu, MoTa, NgayTao, SoLuong, HinhAnh, Gia, LuotXem, TinhTrang) 
-                values('$masp', '$tensp', '$loaisp', '$nhasanxuat', '$xuatxu', '$mota', $ngaytao, '$soluong', '$gia', '$luotxem', '$tinhtrang')";
+        $sql = "INSERT INTO `onlineshop`.`sanpham` (`ID`, `MaSP`, `TenSP`, `LoaiSP`, `NhaSanXuatId`, `XuatXu`, `Mota`, `Ngaytao`, `Soluong`, `HinhAnh`, `Gia`, `Luotxem`, `Tinhtrang`)
+         VALUES ('$ID', '$masp', '$tensp', '$loaisp', '$nhasanxuat', '$xuatxu', '$mota', '$ngaytao', '$soluong', '$target_file','$gia', '$luotxem', '$tinhtrang')";
    
-        $id = write($sql);
+        $result = write($sql);
 
-        
-	    if ($f["error"] > 0) {
-
-	    } else {
-
-            //mkdir("../imgs/$id");
-
-            $tmp_name = $f["tmp_name"];
-            $name = $f["name"];
-            $destination = "../img/$id" .$name;
-
-            move_uploaded_file($tmp_name, $destination);
-	    }
-        
+        if($result==false)
+        {
+            echo("<script>alert('Them khong thanh cong')</script>");
+        }
         
         
 	}
@@ -87,7 +77,7 @@
 						<strong>Well done!</strong> You successfully read this important alert message.
 					</div>
 				<?php endif; ?>
-				<form method="post" action="" name="frmAdd">
+				<form method="post" action="" name="frmAdd"  enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="txtMaSP">Mã sản phẩm</label>
                     
@@ -140,7 +130,9 @@
 					</div>
                     <div class="form-group">
                         <label for="txtHinhAnh">Hình ảnh</label>
-                        <input type="file" class="form-control-file" id="txtHinhAnh" name="fuHinhAnh" >
+                        <input type="file" class="form-control-file" id="txtHinhAnh"  onchange="UploadDulieu()" name="fuHinhAnh" >
+                        <img src="" alt=" " style="width:185px;height:185px">
+
                         <!-- <input type="button"  id="btnUpload" name="btnUpload" value="..." onclick="OpenUploader();"> -->
                     </div>
                     <div class="form-group">
@@ -174,6 +166,31 @@
 		$(function() {
 		    $('#txtTenSP').focus();
 		});
+
+
+
+        
+function UploadDulieu()
+{
+          var preview = document.querySelector('img');// tên thẻ 
+       var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+       var reader  = new FileReader();
+
+       reader.onloadend = function () {
+           preview.src = reader.result;
+          
+       }
+       
+               
+       if (file) {
+           reader.readAsDataURL(file); //reads the data as a URL
+       } else {
+           preview.src = "";
+       }
+  
+  
+
+}
 	</script>
                 
                
