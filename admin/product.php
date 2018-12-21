@@ -101,7 +101,7 @@
                                 <td><?= $row["XuatXu"] ?></td>
 								<td><?= $row["MoTa"] ?></td>
                                 <td><?= $row["SoLuong"] ?></td>
-								<td><?= $row["HinhAnh"] ?></td>
+								<td> <img src="../<?php echo($row["HinhAnh"]);?>" alt="Khong hinh"  style="width:144px;height:144px"></td>
                                 <td><?= $row["Gia"] ?></td>
 								<td><?= $row["LuotXem"] ?></td>
                                 <td><?= $row["TinhTrang"] ?></td>
