@@ -32,12 +32,12 @@
                 <p class="lead">Thay đổi thông tin tài khoản và mật khẩu</p>
               
                 <h3>Thay đổi mật khẩu</h3>
-                <form>
+                <form  action="#" method="POST" id="Sulymk" >
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="password_old">Mật khẩu cũ</label>
-                        <input id="password_old" type="password" class="form-control">
+                        <input id="password_old" type="password" name="password_old" class="form-control">
                       </div>
                     </div>
                   </div>
@@ -45,7 +45,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="password_1">Mật khẩu mới</label>
-                        <input id="password_1" type="password" class="form-control">
+                        <input id="password_1" type="password" name="password_1" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -57,7 +57,7 @@
                   </div>
                   <!-- /.row-->
                   <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Lưu lại mật khẩu</button>
+                    <button type="submit" class="btn btn-primary" onclick="KiemtraMatKhau()"><i class="fa fa-save"></i> Lưu lại mật khẩu</button>
                   </div>
                 </form>
                 <h3 class="mt-5">Thông tin tài khoản của bạn</h3>
@@ -71,21 +71,13 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="lastname">Lastname</label>
+                        <label for="lastname">Địa chỉ</label>
                         <input id="lastname" type="text" class="form-control">
                       </div>
                     </div>
                   </div>
                   <!-- /.row-->
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="company">Company</label>
-                        <input id="company" type="text" class="form-control">
-                      </div>
-                    </div>
-                   
-                  </div>
+                 
                   <!-- /.row-->
                   <div class="row">
                     
@@ -97,9 +89,9 @@
                     </div>
                    
                     <div class="col-md-6">
-                      <div class="form-group">
-                        <img src="#" alt="khong có hình">
-                        <input type=/>
+                      <div class="form-group" >
+                          <img src="#" id="hinhanh" alt="Khong co hinh" width="185px"  style="width:185px;height:185px;"/>
+                         <input type="file"  id="txtHinhAnh" onchange="UploadDulieu()" name="txtHinhAnh" >
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -118,3 +110,55 @@
           </div>
         </div>
       </div>
+
+      <script>
+
+      function UploadDulieu()
+		 {
+            var preview = document.getElementById("hinhanh");// tên thẻ 
+          var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+          var reader  = new FileReader();
+          reader.onloadend = function ()
+           {
+            preview.setAttribute ("src",reader.result);
+            
+          }
+          
+              
+          if (file)
+           {
+            reader.readAsDataURL(file); //reads the data as a URL
+          } else
+           {
+            preview.src = "";
+          }
+         
+
+		}
+
+
+        function KiemtraMatKhau()
+        {
+            var mkmoi1=document.getElementById("password_1").value;
+            var mkmoi2=document.getElementById("password_2").value;
+            var s=mkmoi1.localeCompare(mkmoi2)
+            if(s==0)
+            {
+              var f= document.getElementById("Sulymk");
+              f.setAttribute("action","?Page=UpdateMatKhau");
+            }
+            else
+            {
+              alert("Mat khau sai roi");
+            }
+
+
+            
+            
+
+          
+
+
+        }
+        
+      </script>

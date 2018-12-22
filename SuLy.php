@@ -321,6 +321,16 @@ class Suly
 
   function ThongTinNguoiMua()
   {
+        require_once './lib/db.php';
+         $IDND=$_SESSION["current_user"]->ID;
+
+         $sql="select TongGia  from dathang where UserId='$IDND'";
+
+         $results=load($sql);
+         $rows=$results->fetch_object();
+         $tong=$rows->TongGia;
+
+
 
 
       require_once("PhieuMua.php");
@@ -355,7 +365,43 @@ class Suly
 
 
 
-  }
+    }
+
+    function UpdateMatKhau()
+    {
+         require_once './lib/db.php';
+
+        $MKMoi=$_POST["password_1"];
+
+        $mkcu=$_POST["password_old"];
+
+         $MKSQL=$_SESSION["current_user"]->MatKhau;
+        
+        $MkCuMD5=md5($mkcu);
+
+        $MatKM=md5($MKMoi);
+
+        $kq= strcmp($MkCuMD5,$MKSQL);
+
+        if($kq==0)
+        {
+            $IDND=$_SESSION["current_user"]->ID;
+
+            $sql="update TaiKhoan set MatKhau ='$MatKM' where  ID='$IDND'";
+            $result=write($sql);
+            $this->Logout();
+
+        }
+        else
+        {
+            $this->ThongTinTK();
+        }
+
+
+        
+
+
+    }
 
 
 

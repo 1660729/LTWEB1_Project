@@ -77,7 +77,7 @@
                         </tr>
                         <tr class="total">
                           <td>Tổng số tiền</td>
-                          <th><?php echo($row->TongGia)?></th>
+                          <th><?php echo( $tong);?></th>
                         </tr>
                       </tbody>
                     </table>

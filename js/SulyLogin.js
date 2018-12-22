@@ -6,4 +6,5 @@ function Suly()
     document.getElementsByClassName();
  var xhr=new XMLHttpRequest();
 xhr.setRequestHeader()
+
 }

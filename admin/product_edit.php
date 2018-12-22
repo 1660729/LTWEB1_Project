@@ -126,8 +126,8 @@
                     </div>
                     <div class="form-group">
                         <label for="txtHinhAnh">Hình ảnh</label>
-				
-                        <input type="file" class="form-control-file" id="txtHinhAnh" name="txtHinhAnh" value="<?= $HinhAnh ?>">
+						   <img src="" alt=" " style="width:185px;height:185px">
+                        <input type="file" class="form-control-file" id="txtHinhAnh" onchange="UploadDulieu()" name="txtHinhAnh" value="<?= $HinhAnh ?>">
                     </div>
                     <div class="form-group">
 						<label for="txtGia">Giá</label>
@@ -155,6 +155,31 @@
 		$(function() {
 		    $('#txtCatName').focus();
 		});
+
+   
+			function UploadDulieu()
+			{
+					var preview = document.querySelector('img');// tên thẻ 
+				var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+				var reader  = new FileReader();
+
+				reader.onloadend = function () {
+					preview.src = reader.result;
+					
+				}
+				
+				
+						
+				if (file) {
+					reader.readAsDataURL(file); //reads the data as a URL
+				} else {
+					preview.src = "";
+				}
+			}
+  
+
+
+
 	</script>
 </body>
 </html>
