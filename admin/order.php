@@ -99,7 +99,7 @@
 								<td><?= $row["UserId"] ?></td>
                                 <td><?= $row["TongGia"] ?></td>
 								<td><?= $row["LoaiGiaoHang"] ?></td>
-                                <td><?= $row["TinhTrang"] ?></td>
+                                <td class="tinhtrang"><?= $row["TinhTrang"] ?></td>
 								<td><?= $row["NgayTao"] ?></td>
                                 <td><?= $row["NgayDuKienGiaoHang"] ?></td>
 								<td><?= $row["DiaChiNhanHangId"] ?></td>
@@ -164,9 +164,24 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		var elements = document.getElementsByClassName("tinhtrang");
+		for(var i = 0; i < elements.length; i++)
+		{
+			if(elements[i].innerHTML == "1")
+			{
+				elements[i].style.background = "blue";
+			}
+			if(elements[i].innerHTML == "0") 
+			{
+				elements[i].style.background = "red";
+			}
+		}
+	</script>
+
 </body>
 </html>
 
 <?php require_once("modules/header.php") ?>
-                
-               
+
