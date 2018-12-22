@@ -154,7 +154,7 @@ class Suly
             $ma2=$M1->ID;
 
             #Hiển thị danh sách sản phẩm trong giỏ hàng
-            $SqlLayTBgioHang="select ChiTietDathang.ID,SanPham.MaSP,SanPham.Hinhanh,SanPham.TenSP,ChiTietDathang.Gia from ChiTietDathang join SanPham on ChiTietDathang.MaSP=SanPham.MaSP
+            $SqlLayTBgioHang="select ChiTietDathang.ID,SanPham.MaSP,SanPham.Hinhanh,SanPham.TenSP,SanPham.Gia as GIASP,ChiTietDathang.Gia,ChiTietDathang.SoLuong from ChiTietDathang join SanPham on ChiTietDathang.MaSP=SanPham.MaSP
                 where ChiTietDathang.DatHangID='$ma2'";
             $resqul=load($SqlLayTBgioHang);
 
@@ -180,7 +180,8 @@ class Suly
         {
             $maSp=$_GET["ID"];
             $Gia=$_GET["Gia"];
-            $Sl=$_GET["Sluong"];
+           # $Sl=$_GET["Sluong"];
+             $Sl ="1";
             $tenSp=$_GET["TenSP"];
             
               $IDND=$_SESSION["current_user"]->ID;
@@ -192,7 +193,7 @@ class Suly
             $MaDathang=$r1->ID;
             #Tạo chi tiết đơn hàng
             $maChitiet=uniqid();
-            $SqlChitiet="insert chitietdathang(ID,DatHangId,MaSP,Gia)values('$maChitiet','$MaDathang','$maSp','$Gia')";
+            $SqlChitiet="insert chitietdathang(ID,DatHangId,MaSP,SoLuong,Gia)values('$maChitiet','$MaDathang','$maSp',$Sl,'$Gia')";
             $NhonChitiet=write($SqlChitiet);
 
             #cập nhật lai đơn đặt hàng
@@ -309,12 +310,54 @@ class Suly
          require_once './lib/db.php';
         $ma=$_GET["ID"];
 
-        $sql="select * from sanpham join danhmuc on sanpham.NhaSanXuatId='$ma'";
+        $sql="select * from sanpham where  sanpham.NhaSanXuatId='$ma'";
         $result=load($sql);
 
 
       require_once("HienThiNSX.php");
   }
+
+
+
+  function ThongTinNguoiMua()
+  {
+
+
+      require_once("PhieuMua.php");
+  }
+
+
+  function ThemThongTinNguoiMua()
+  {
+        require_once './lib/db.php';
+         $IDND=$_SESSION["current_user"]->ID;
+
+
+        $TenNNhan=$_POST["firstname"];
+        $SoDt=$_POST["SoDT"];
+        $DiaChi=$_POST["Diachi"];
+        $Ma=uniqid();
+
+        $sql="insert diachinhanhang(ID,NguoiDungId,TenNguoiNhan,SoDienThoai,DiaChiGiaoHang)values('$Ma','$IDND','$TenNNhan','$SoDt','$DiaChi')";
+        $result=write($sql);
+
+        if($result==true)
+        {
+                echo("<script>alert('ban da them thanh cong')</script>");
+                $this->HienThiSanPham();
+        }
+        else
+        {
+            $this->ThongTinNguoiMua();
+        }
+
+       
+
+
+
+  }
+
+
 
 }
 ?>

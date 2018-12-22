@@ -9,7 +9,8 @@
 	}
 
     // cập nhật đơn đặt hàng
-	if (isset($_POST["btnUpdate"])) {
+	if (isset($_POST["btnUpdate"]))
+	{
 		$u_id = $_POST["txtID"];
         $userid = $_POST["txtUserId"];
         $tonggia = $_POST["txtTongGia"];
@@ -19,22 +20,22 @@
         $ngaydukiengh = $_POST["txtNgayDKGH"];
         $diachinhanhang = $_POST["txtDiaChiNH"];
 
-        $u_sql = "update dathang set UserId = '$userid', TongGia = '$tonggia', LoaiGiaoHang = '$loaigh', TinhTrang = '$tinhtrang', NgayDuKienGiaoHang = '$ngaydukiengh', DiaChiNhanHangId = '$diachinhanhang' where ID = $u_id";
-		write($u_sql);
+        $u_sql = "update dathang set UserId = '$userid', TongGia = '$tonggia', LoaiGiaoHang = '$loaigh', TinhTrang = '$tinhtrang', NgayDuKienGiaoHang = '$ngaydukiengh', DiaChiNhanHangId = '$diachinhanhang' where ID = '$u_id'";
+		$rs=write($u_sql);
 		$show_alert = 1;
 	}
 
     // xóa đơn đặt hàng
 	if (isset($_POST["btnDelete"])) {
 		$d_id = $_POST["txtID"];
-		$d_sql = "delete from dathang where ID = $d_id";
-		write($d_sql);
+		$d_sql = "delete from dathang where ID ='$d_id'";
+		$re=write($d_sql);
 		header('Location: order.php');
 	}
 
     // lấy giá trị tại từng dòng
 	$id = $_GET["id"];
-	$sql = "select * from dathang where ID = $id";
+	$sql = "select * from dathang where ID = '$id'";
 	$rs = load($sql);
 	$User = "";
     $TongGia = "";

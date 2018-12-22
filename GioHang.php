@@ -7,7 +7,7 @@
             </div>
             <div id="basket" class="col-lg-9">
               <div class="box">
-                <form method="post" action="checkout1.html">
+                <form method="post" action="?Page=ThongTinNguoiMua">
                   <h1>Giỏ hàng</h1>
                   <p class="text-muted">You currently have 3 item(s) in your cart.</p>
                   <div class="table-responsive">
@@ -27,9 +27,9 @@
                           <td><a href="#"><img src="<?php echo($row["Hinhanh"])?>" alt="White Blouse Armani"></a></td>
                           <td><a href="#"><?php echo($row["TenSP"])?></a></td>
                           <td>
-                            <input type="number" class="<?php echo $row["ID"]?>" value="1" onchange="TongTien(this)" class="form-control">
+                            <input type="number" class="<?php echo $row["ID"]?>" value="<?php echo $row["SoLuong"] ?>" onchange="TongTien(this)" class="form-control">
                           </td>
-                          <td class="<?php echo $row["ID"]?>"><?php echo($row["Gia"])?></td>
+                          <td class="<?php echo $row["ID"]?>"><?php echo($row["GIASP"])?></td>
                           <td>$0.00</td>
                           <td class="<?php echo $row["ID"]?>"><?php echo($row["Gia"])?></td>
                           <td><a href="?Page=XoaSPGioHang&ID=<?php echo $row["ID"]?>" ><i class="fa fa-trash-o"></i></a></td>
