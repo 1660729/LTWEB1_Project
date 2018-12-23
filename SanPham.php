@@ -71,8 +71,8 @@
                 <div class="product">
                   <div class="flip-container">
                     <div class="flipper">
-                      <div class="front"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
-                      <div class="back"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
+                      <div class="front"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid" style="height: 200px"></a></div>
+                      <div class="back"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid" style="height: 200px"></a></div>
                     </div>
                   </div><a href="Chitiet.php" class="invisible"><img src="./img/product3.jpg" alt="" class="img-fluid"></a>
                   <div class="text">
@@ -116,8 +116,8 @@
                 <div class="product">
                   <div class="flip-container">
                     <div class="flipper">
-                      <div class="front"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
-                      <div class="back"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
+                      <div class="front"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid" style="height: 200px; "></a></div>
+                      <div class="back"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid" style="height: 200px;"></a></div>
                     </div>
                   </div><a href="Chitiet.php" class="invisible"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a>
                   <div class="text">
@@ -162,7 +162,7 @@
                 <div class="product">
                   <div class="flip-container">
                     <div class="flipper">
-                      <div class="front"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
+                      <div class="front"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid" ></a></div>
                       <div class="back"><a href="detail.html"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a></div>
                     </div>
                   </div><a href="Chitiet.php" class="invisible"><img src="<?php echo($row["HinhAnh"]);?>" alt="" class="img-fluid"></a>

@@ -1,10 +1,10 @@
-   <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+   <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
               <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Nhà sản xuất<b class="caret"></b></a>
                 <ul class="dropdown-menu megamenu">
                   <li>
                     <div class="row">
                       <div class="col-md-6 col-lg-3">
-                        <h5>Quần áo</h5>
+                        <h5></h5>
                         <ul class="list-unstyled mb-3">   
                                     <?php 
                                require_once './lib/db.php';
@@ -37,7 +37,7 @@
               </li>
   
   
-  <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Ladies<b class="caret"></b></a>
+  <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Loại sản phẩm<b class="caret"></b></a>
  <ul class="dropdown-menu megamenu">
                   <li>
                     <div class="row">
