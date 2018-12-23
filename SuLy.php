@@ -433,6 +433,21 @@ class Suly
 
         }
 
+        function TimKiem()
+        {
+            require_once './lib/db.php';
+
+            if(isset($_REQUEST["subSearch"]))
+            {
+                $inputSearch = $_REQUEST["txtSearch"];
+                $search = $_REQUEST["subSearch"];
+                $sql = "select * from sanpham where TenSP like '%$inputSearch%' 
+                        or LoaiSP like '%$inputSearch%' or XuatXu like '%$inputSearch%'
+                        or NhaSanXuatId like '%$inputSearch%'";
+                $result = load($sql);
+            }
+            require_once("HienThiNSX.php");
+        }
 
 
 
