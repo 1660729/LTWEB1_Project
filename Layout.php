@@ -55,7 +55,7 @@ session_start();
             <div class="col-lg-6 text-center text-lg-right">
               <ul class="menu list-inline mb-0">
                     <li class="list-inline-item"><a href="#" id="Logf"   data-toggle="modal" data-target="#login-modal">Đăng nhập</a></li>
-                    <li class="list-inline-item"><a href="?Page=Logout" data-target="#login-modal"><?php if(isset($_SESSION["current_user"]))echo($_SESSION["current_user"]->NguoiDung)?></a></li>
+                    <li class="list-inline-item"><a href="?Page=ThongTinTK" data-target="#login-modal"><?php if(isset($_SESSION["current_user"]))echo($_SESSION["current_user"]->NguoiDung)?></a></li>
                     <li class="list-inline-item"><a href="?Page=DangKi">Đăng Kí</a></>
               </ul>
             </div>

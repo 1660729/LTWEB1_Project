@@ -20,7 +20,11 @@
                   <h3 class="h4 card-title">Customer section</h3>
                 </div>
                 <div class="card-body">
-                  <ul class="nav nav-pills flex-column"><a href="customer-orders.html" class="nav-link active"><i class="fa fa-list"></i> My orders</a><a href="customer-wishlist.html" class="nav-link"><i class="fa fa-heart"></i> My wishlist</a><a href="customer-account.html" class="nav-link"><i class="fa fa-user"></i> My account</a><a href="index.html" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a></ul>
+                  <ul class="nav nav-pills flex-column"><a href="customer-orders.html" class="nav-link active"><i class="fa fa-list"></i> My orders</a>
+                    <a href="customer-wishlist.html" class="nav-link"><i class="fa fa-heart"></i> My wishlist</a>
+                    <a href="./admin" class="nav-link"><i class="fa fa-user"></i>Trang Quan Tri</a>
+                    <a href="?Page=Logout" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a>
+                  </ul>
                 </div>
               </div>
               <!-- /.col-lg-3-->
@@ -61,18 +65,13 @@
                   </div>
                 </form>
                 <h3 class="mt-5">Thông tin tài khoản của bạn</h3>
-                <form>
+                <form  action="#" method="POST" id="Sulytk" >
                   <div class="row">
+                    
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="firstname">Tên đăng nhập</label>
-                        <input id="firstname" type="text" class="form-control">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="lastname">Địa chỉ</label>
-                        <input id="lastname" type="text" class="form-control">
+                        <label for="DiaChi">Địa chỉ</label>
+                        <input id="DiaChi" type="text" name="DC" class="form-control">
                       </div>
                     </div>
                   </div>
@@ -83,25 +82,25 @@
                     
                      <div class="col-md-6">
                       <div class="form-group">
-                        <label for="phone">Telephone</label>
-                        <input id="phone" type="text" class="form-control">
+                        <label for="phone">Điện thoại</label>
+                        <input id="phone" name="DT" type="text" class="form-control">
                       </div>
                     </div>
                    
                     <div class="col-md-6">
                       <div class="form-group" >
                           <img src="#" id="hinhanh" alt="Khong co hinh" width="185px"  style="width:185px;height:185px;"/>
-                         <input type="file"  id="txtHinhAnh" onchange="UploadDulieu()" name="txtHinhAnh" >
+                         <input type="file"  id="txtHinhAnh" onchange="UploadDulieu()" name="dss"   >
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="email">Email</label>
-                        <input id="email" type="text" class="form-control">
+                        <input id="email" type="text" name="Em" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-12 text-center">
-                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save changes</button>
+                      <button type="submit" class="btn btn-primary" onclick="UpadteTaiKhan()"><i class="fa fa-save"></i> Save changes</button>
                     </div>
                   </div>
                 </form>
@@ -153,11 +152,16 @@
             }
 
 
-            
-            
+        }
 
+
+
+        function UpadteTaiKhan()
+        {
+           
+              var f= document.getElementById("Sulytk");
+              f.setAttribute("action","?Page=UpdateTaiKhoan");
           
-
 
         }
         

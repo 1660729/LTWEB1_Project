@@ -1,17 +1,19 @@
 <?php
-
-
-  $page ="";
-  if(isset($_GET["Page"]))
+    session_start();
+   $IDND=$_SESSION["current_user"]->Quyen;
+  $kt=intval($IDND);
+  if($IDND==1)
   {
-    $page=$_GET["Page"];
+  $page="layout";
 
+
+  require_once($page.'.php');
   }
   else
   {
-    $page="layout";
+    echo("<script> alert('Ban khong duoc phep truy cap vao day');  window.location.href = '../index.php'; </script>");
   }
 
-  require_once($page.'.php');
+  
 
 ?>

@@ -48,7 +48,7 @@ class Suly
                     
                     $_SESSION["current_user"] = $rs->fetch_object();
                     $_SESSION["dang_nhap_chua"] = 1;
-
+                    
 
                    $this->HienThiSanPham();
                 } 
@@ -368,40 +368,81 @@ class Suly
     }
 
     function UpdateMatKhau()
-    {
-         require_once './lib/db.php';
-
-        $MKMoi=$_POST["password_1"];
-
-        $mkcu=$_POST["password_old"];
-
-         $MKSQL=$_SESSION["current_user"]->MatKhau;
-        
-        $MkCuMD5=md5($mkcu);
-
-        $MatKM=md5($MKMoi);
-
-        $kq= strcmp($MkCuMD5,$MKSQL);
-
-        if($kq==0)
         {
-            $IDND=$_SESSION["current_user"]->ID;
+            require_once './lib/db.php';
 
-            $sql="update TaiKhoan set MatKhau ='$MatKM' where  ID='$IDND'";
-            $result=write($sql);
-            $this->Logout();
+            $MKMoi=$_POST["password_1"];
+
+            $mkcu=$_POST["password_old"];
+
+            $MKSQL=$_SESSION["current_user"]->MatKhau;
+            
+            $MkCuMD5=md5($mkcu);
+
+            $MatKM=md5($MKMoi);
+
+            $kq= strcmp($MkCuMD5,$MKSQL);
+
+            if($kq==0)
+            {
+                $IDND=$_SESSION["current_user"]->ID;
+
+                $sql="update TaiKhoan set MatKhau ='$MatKM' where  ID='$IDND'";
+                $result=write($sql);
+                $this->Logout();
+
+            }
+            else
+            {
+                $this->ThongTinTK();
+            }
+
+                
+
+
+            
+
 
         }
-        else
+
+
+
+        function UpdateTaiKhoan()
         {
-            $this->ThongTinTK();
+
+              require_once './lib/db.php';
+
+            // $DiaChis=$_POST["DC"];
+            // $DienThoai=$_POST["DT"];
+            // $email=$_POST["Em"];
+            
+
+            $name=$_FILES['dss']['name'];
+            
+
+            $target_dir = "../img/";
+            $target_file = $target_dir .uniqid(). basename($_FILES['dss']['name']);
+            move_uploaded_file($_FILES["dss"]["tmp_name"],$target_file);
+             $IDND=$_SESSION["current_user"]->ID;
+            $sql="update TaiKhoan set DiaChi='$DiaChis',Email='$email',DienThoai='$DienThoai',HinhAnh='$target_file' where ID='$IDND'";
+            $re=write($sql);
+
+
+
+
+
         }
 
 
-        
 
 
-    }
+
+
+
+
+
+
+
 
 
 
