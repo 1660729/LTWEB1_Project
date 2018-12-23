@@ -412,36 +412,33 @@ class Suly
 
               require_once './lib/db.php';
 
-            // $DiaChis=$_POST["DC"];
-            // $DienThoai=$_POST["DT"];
-            // $email=$_POST["Em"];
+             $DiaChis=$_POST["DC"];
+             $DienThoai=$_POST["DT"];
+             $email=$_POST["Em"];
             
+           
 
-            $name=$_FILES['dss']['name'];
-            
-
-            $target_dir = "../img/";
+            $target_dir = "./img/";
             $target_file = $target_dir .uniqid(). basename($_FILES['dss']['name']);
             move_uploaded_file($_FILES["dss"]["tmp_name"],$target_file);
              $IDND=$_SESSION["current_user"]->ID;
             $sql="update TaiKhoan set DiaChi='$DiaChis',Email='$email',DienThoai='$DienThoai',HinhAnh='$target_file' where ID='$IDND'";
             $re=write($sql);
 
+            if($re==true)
+            {
+                 echo("<script>alert('Bạn đã thay đổi thành công')</script>");
+                     $this->Logout();
 
-
-
-
+            }
+            else
+            {
+                $this->ThongTinTK();
+            }
+        
+        
+        
         }
-
-
-
-
-
-
-
-
-
-
 
 
 

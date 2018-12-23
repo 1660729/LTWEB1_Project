@@ -65,7 +65,7 @@
                   </div>
                 </form>
                 <h3 class="mt-5">Thông tin tài khoản của bạn</h3>
-                <form  action="#" method="POST" id="Sulytk" >
+                <form  action="#" method="POST" id="Sulytk" enctype="multipart/form-data" >
                   <div class="row">
                     
                     <div class="col-md-6">
