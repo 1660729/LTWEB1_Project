@@ -130,6 +130,18 @@ class Suly
         // #Cùng nhà sản xuất
         $SungNSX="select * from sanpham where NhaSanXuatId= (select NhaSanXuatId from sanpham  where ID='1') limit 0,5;";
         $CSX=load($SungNSX);
+
+        //tang luot xem cua san pham
+         $SqlLuotxem="select LuotXem from sanpham where ID='$IDs'";
+         $rs=load($SqlLuotxem);
+
+        $luotXemCu=($rs->fetch_object())->LuotXem;
+         $LuotXemMoi=$luotXemCu+1;
+         $sqp="update sanpham set LuotXem=$LuotXemMoi where ID='$IDs'";
+         $s=write($sqp);
+
+
+
         require_once("Chitiet.php");
 
     }
