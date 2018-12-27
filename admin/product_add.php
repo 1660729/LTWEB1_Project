@@ -16,7 +16,7 @@
         $gia = $_POST["txtGia"];
         $luotxem = $_POST["txtLuotXem"];
         $tinhtrang = $_POST["txtTinhTrang"];
-          $target_dir = "../img/";
+          $target_dir = "img/";
             $target_file = $target_dir .uniqid(). basename($_FILES["fuHinhAnh"]["name"]);
             move_uploaded_file($_FILES["fuHinhAnh"]["tmp_name"],$target_file);
         $ID=uniqid();

@@ -135,10 +135,10 @@ class Suly
          $SqlLuotxem="select LuotXem from sanpham where ID='$IDs'";
          $rs=load($SqlLuotxem);
 
-        $luotXemCu=($rs->fetch_object())->LuotXem;
-         $LuotXemMoi=$luotXemCu+1;
-         $sqp="update sanpham set LuotXem=$LuotXemMoi where ID='$IDs'";
-         $s=write($sqp);
+        // $luotXemCu=($rs->fetch_assoc())->LuotXem;
+        //  $LuotXemMoi=$luotXemCu+1;
+        //  $sqp="update sanpham set LuotXem=$LuotXemMoi where ID='$IDs'";
+         //$s=write($sqp);
 
 
 
@@ -494,7 +494,7 @@ class Suly
             }
             else
             {
-
+                
             }
           
         }

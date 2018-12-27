@@ -22,7 +22,7 @@
 		$d_id = $_POST["txtCatID"];
 		$d_sql = "delete from danhmuc where ID = $d_id";
 		write($d_sql);
-		header('Location: category.php');
+		//header('Location: category.php');
 	}
 
 

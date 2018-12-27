@@ -7,7 +7,8 @@
 	// insert tên danh muc vào bảng danh mục
 	if (isset($_POST["btnAdd"])) {
 		$name = $_POST["txtCatName"];
-		$sql = "insert into danhmuc(Ten) values('$name')";
+		$Ma=uniqid();
+		$sql = "insert into danhmuc(ID, Ten) values('$Ma', '$name')";
 		write($sql);
 
 		$show_alert = 1;

@@ -38,7 +38,7 @@
                       </tbody>
                       <tfoot>
                         <tr>
-                          <th colspan="5">Total</th>
+                          <th colspa+n="5">Total</th>
                           <th colspan="2"><?php echo $kq5?></th>
                         </tr>
                       </tfoot>

@@ -31,7 +31,7 @@
 
 
 
-                    <p class="text-center buttons"><a href="?Page=ThemSPGihang&ID=<?php echo($row["MaSP"])?>&Gia=<?php echo($row["Gia"])?>&Sluong=<?php echo($row["SoLuong"])?>&TenSP=<?php echo($row["TenSP"])?>" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a><a href="basket.html" class="btn btn-outline-primary"><i class="fa fa-heart"></i> Add to wishlist</a></p>
+                    <p class="text-center buttons"><a href="?Page=ThemSPGihang&ID=<?php echo($row["MaSP"])?>&Gia=<?php echo($row["Gia"])?>&Sluong=<?php echo($row["SoLuong"])?>&TenSP=<?php echo($row["TenSP"])?>" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a><a href="#" class="btn btn-outline-primary"><i class="fa fa-heart"></i> Add to wishlist</a></p>
                   </div>
                   
                 </div>
