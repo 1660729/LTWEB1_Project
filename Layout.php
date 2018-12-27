@@ -112,11 +112,17 @@ session_start();
       </nav>
       <div id="search" class="collapse">
         <div class="container">
-          <form role="search" class="ml-auto" action="?Page=TimKiem">
+          <form role="search" class="ml-auto" action="?Page=TimKiem"  method="POST" >
             <div class="input-group">
-              <input type="text" placeholder="Search" class="form-control">
+              <input type="text" placeholder="Search" name="txtSearch" class="form-control">
+              <select name="chon">
+                  <option value="TenSP" >Tên sản phẩm</option>
+                  <option value="LoaiSP" >Loại sản phẩm</option>
+                  <option value="XuatXu" selected>Xuất xứ</option>
+                  <option value="NhaSanXuatId">Nhà sản xuất</option>
+                </select>
               <div class="input-group-append">
-                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                <button type="submit" class="btn btn-primary" name="subSearch"><i class="fa fa-search"></i></button>
               </div>
             </div>
           </form>

@@ -459,13 +459,44 @@ class Suly
             if(isset($_REQUEST["subSearch"]))
             {
                 $inputSearch = $_REQUEST["txtSearch"];
-                $search = $_REQUEST["subSearch"];
-                $sql = "select * from sanpham where TenSP like '%$inputSearch%' 
-                        or LoaiSP like '%$inputSearch%' or XuatXu like '%$inputSearch%'
-                        or NhaSanXuatId like '%$inputSearch%'";
-                $result = load($sql);
+                $tieuchitim=$_REQUEST["chon"];
+                if($tieuchitim=='XuatXu')
+                {
+                        $sql="select * from sanpham where XuatXu like CONCAT('%', '$inputSearch' , '%')";
+                         $result = load($sql);
+                         require_once("HienThiSP.php");
+                }
+                else if($tieuchitim=='TenSP')
+                {
+                        
+                        $sql="select * from sanpham where TenSP like CONCAT('%', '$inputSearch' , '%')";
+                         $result = load($sql);
+                         require_once("HienThiSP.php");
+                }
+                 else if($tieuchitim=='LoaiSP')
+                {
+                        
+                        $sql="select * from sanpham where LoaiSP like CONCAT('%', '$inputSearch' , '%')";
+                         $result = load($sql);
+                         require_once("HienThiSP.php");
+                }
+                  else if($tieuchitim=='NhaSanXuatId')
+                {
+                        
+                        $sql="select * from sanpham where NhaSanXuatId like CONCAT('%', '$inputSearch' , '%')";
+                         $result = load($sql);
+                         require_once("HienThiSP.php");
+                }
+
+
+               
+               
             }
-            require_once("HienThiNSX.php");
+            else
+            {
+
+            }
+          
         }
 
 
